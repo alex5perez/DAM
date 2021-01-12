@@ -1,4 +1,4 @@
-package exercici2uf1;
+package M9.UF1.Activitat2;
 /**
  *
  * @author alexp
