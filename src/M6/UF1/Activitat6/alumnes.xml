@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<departaments>
+    <departaments id="0">
+        <CURS>SEGON</CURS>
+        <DEPT_NO>104</DEPT_NO>
+        <NOMBRE>DAM</NOMBRE>
+    </departaments>
+    <departaments id="1">
+        <CURS>SEGON</CURS>
+        <DEPT_NO>105</DEPT_NO>
+        <NOMBRE>DAW</NOMBRE>
+    </departaments>
+    <departaments id="2">
+        <CURS>PRIMER</CURS>
+        <DEPT_NO>35</DEPT_NO>
+        <NOMBRE>ESO</NOMBRE>
+    </departaments>
+    <departaments id="3">
+        <CURS>SEGON</CURS>
+        <DEPT_NO>96</DEPT_NO>
+        <NOMBRE>BAT</NOMBRE>
+    </departaments>
+</departaments>
