@@ -1,14 +1,18 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Heu de crear un usuari en el vostre MySQL anomenat «usuari» i password 
+«usuari» i és el que heu de fer servir en les vostres activitats per accedir 
+a les bases de dades.
  */
 package M6.UF2.Activitat4;
 
-/**
- *
- * @author alexp
- */
+/*
+* File: Exercici4UF2M6.java 
+* Author: Alex Pérez Rubio
+* Date: 14-01-2021
+* Description: Activitat 4 PRACTICA UF2 M6
+*/
 public class Activitat4 {
+    
+    
     
 }
