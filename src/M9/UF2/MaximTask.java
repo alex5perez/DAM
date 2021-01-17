@@ -19,7 +19,10 @@ public class MaximTask extends RecursiveTask<Short> {
     private static final int LLINDAR = 10000000;
     private short[] arr;
     private int inici, fi;
-
+    private static final String CONT = "Comptador ";
+    private static final String INI = "Ini ";
+    private static final String FIN = "Fi ";
+    
     public MaximTask(short[] arr, int inici, int fi) {
         
         this.arr = arr;
@@ -48,6 +51,8 @@ public class MaximTask extends RecursiveTask<Short> {
         task1.fork();
         task2 = new MaximTask(arr, mig, fi);
         task2.fork();
+        
+        
         return (short) Math.max(task1.join(), task2.join());
     }
 
