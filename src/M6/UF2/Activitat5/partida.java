@@ -42,7 +42,7 @@ public class partida extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null},
                 {null, "", null, null, null, null, null, null},
                 {null, "O", null, "O", "", "O", null, "O"},
-                {"O", null, "O", null, "O", null, "o", null}
+                {"O", null, "O", null, "O", null, "O", null}
             },
             new String [] {
                 "Col", "Col", "Col", "Col", "Col", "Col", "Col", "Col"

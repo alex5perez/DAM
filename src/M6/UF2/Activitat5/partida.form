@@ -120,7 +120,7 @@
                   <Data value="null"/>
                   <Data value="null"/>
                   <Data value="null"/>
-                  <Data value="o"/>
+                  <Data value="O"/>
                 </Column>
                 <Column editable="true" title="Col" type="java.lang.Object">
                   <Data value="null"/>
