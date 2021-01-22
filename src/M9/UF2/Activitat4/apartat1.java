@@ -4,6 +4,8 @@ el moviment dels caixers d’un supermercat.
  */
 package M9.UF2.Activitat4;
 
+import java.util.concurrent.*;
+
 /*
 * File: Exercici9UF2M9.java 
 * Author: Alex Pérez Rubio i Hector Garzon Borras
@@ -21,5 +23,14 @@ public class apartat1 {
         }
     }
     
-    
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool (20);
+        
+        for (int i = 1; < 50; i++) {
+            Caixa task = new Caixa(i);
+            executor.scheduleWithFixedDelay(task, 0 , 3, TimeUnit.SECONDS);
+    }
+        executor.awaitTermination(20, TimeUnit.SECONDS);
+        executor.shutdown();
+    }
 }
