@@ -24,7 +24,14 @@ public class apartat1 {
 
         @Override
         public void run() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            int articlesRandom = (int) (Math.random() * (30 - 1 + 1)) + 1;
+            int tempsRandom;
+            
+            System.out.println("Creat Client " + numClient + " amb " + articlesRandom + " articles.");
+            System.out.println("Client " + numClient + "passa per caixa ");
+            for (int j = 1; j < articlesRandom; j++) {
+                
+            }
         }
         
         
