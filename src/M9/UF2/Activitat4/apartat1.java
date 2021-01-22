@@ -26,7 +26,7 @@ public class apartat1 {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool (20);
         
-        for (int i = 1; < 50; i++) {
+        for (int i = 1; i < 50; i++) {
             Caixa task = new Caixa(i);
             executor.scheduleWithFixedDelay(task, 0 , 3, TimeUnit.SECONDS);
     }
