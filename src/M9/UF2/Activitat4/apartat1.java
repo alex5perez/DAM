@@ -28,7 +28,7 @@ public class apartat1 {
             int tempsRandom;
             
             System.out.println("Creat Client " + numClient + " amb " + articlesRandom + " articles.");
-            System.out.println("Client " + numClient + "passa per caixa ");
+            System.out.println("Client " + numClient + " passa per caixa ");
             for (int j = 1; j < articlesRandom; j++) {
                 
             }
@@ -38,9 +38,9 @@ public class apartat1 {
     }
     
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool (20);
+        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool (4);
         
-        for (int i = 1; i < 50; i++) {
+        for (int i = 1; i <= 50; i++) {
             Caixa task = new Caixa(i);
             executor.scheduleWithFixedDelay(task, 0 , 3, TimeUnit.SECONDS);
     }
