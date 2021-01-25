@@ -31,6 +31,7 @@ public class partida extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,15 +64,22 @@ public class partida extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -80,7 +88,9 @@ public class partida extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -99,11 +109,26 @@ public class partida extends javax.swing.JFrame {
         
         fila = obtenirFilaClicada();
         columna = obtenirFilaClicada();
+        
+        if (noHiHaOrigen()) {
+            if (jugaX) && EsX(fila, columna)) {
+                ActualitzaNouOrigen(fila, columna);
+            } else if (jugaO && EsO(fila, columna)) {
+                ActualitzaNouOrigen(fila, columna);
+            } else {
+                mostraError();
+            } 
+        } else if ()
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
      */
+    private boolean jugaX = true;
+    private boolean jugaO = false;
+    private int filaOrigen = -1;
+    private int columnaOrigen = -1;
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -138,11 +163,37 @@ public class partida extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
     private int obtenirFilaClicada() {
         return jTable1.getSelectedRow();
+    }
+    
+    private int obtenirColumnaClicada() {
+        return jTable1.getSelectedRow();
+    }
+    
+    private boolean noHiHaOrigen() {
+        return (this.filaOrigen == -1);
+    }
+    
+    private boolean EsX(int fila, int columna) {
+        return (jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase("X"));
+    }
+    
+    private boolean EsO(int fila, int columna) {
+        return (jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase("X"));
+    }
+    
+    private void ActualitzaNouOrigen(int fila, int columna) {
+        this.filaOrigen = fila;
+        this.columnaOrigen = columna;
+    }
+    
+    private void mostraError() {
+        jLabel1.setText("Tria una fitxe teva");
     }
 }
