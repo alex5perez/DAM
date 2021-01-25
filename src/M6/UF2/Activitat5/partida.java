@@ -111,7 +111,7 @@ public class partida extends javax.swing.JFrame {
         columna = obtenirFilaClicada();
         
         if (noHiHaOrigen()) {
-            if (jugaX) && EsX(fila, columna)) {
+            if (jugaX && EsX(fila, columna)) {
                 ActualitzaNouOrigen(fila, columna);
             } else if (jugaO && EsO(fila, columna)) {
                 ActualitzaNouOrigen(fila, columna);
@@ -221,5 +221,13 @@ public class partida extends javax.swing.JFrame {
     
     private boolean ocupatContrari(int fila, int columna) {
         return (!jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase(jTable1.getModel().getValueAt(filaOrigen, columnaOrigen).toString()));
+    }
+    
+    private void mou(int fila, int columna) {
+        
+    }
+    
+    private boolean ocupatPropi(int fila, int columna) {
+        return (jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase(jTable1.getModel().getValueAt(filaOrigen, columnaOrigen).toString()));
     }
 }
