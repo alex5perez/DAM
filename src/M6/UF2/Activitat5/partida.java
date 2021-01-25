@@ -118,7 +118,11 @@ public class partida extends javax.swing.JFrame {
             } else {
                 mostraError();
             } 
-        } else if ()
+        } else if (movimentValid(fila, columna)) {
+            if (esBuit(fila, columna) || ocupatContrari(fila, columna)) {
+                mou(fila, columna);
+            }
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
@@ -195,5 +199,27 @@ public class partida extends javax.swing.JFrame {
     
     private void mostraError() {
         jLabel1.setText("Tria una fitxe teva");
+    }
+    
+    private boolean movimentValid(int fila, int columna) {
+        if (!ocupatPropi(fila, columna)) {
+            if (jugaX && (fila == filaOrigen + 1) && (columna == columnaOrigen + 1 || columna == columnaOrigen - 1)) {
+                return true;
+            }else if (jugaO && (fila == filaOrigen - 1) && (columna == columnaOrigen + 1 || columna == columnaOrigen - 1)) {
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+    
+    private boolean esBuit(int fila, int columna) {
+        return (jTable1.getModel().getValueAt(fila, columna).equals(""));
+    }
+    
+    private boolean ocupatContrari(int fila, int columna) {
+        return (!jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase(jTable1.getModel().getValueAt(filaOrigen, columnaOrigen).toString()));
     }
 }
