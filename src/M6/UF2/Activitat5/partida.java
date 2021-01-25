@@ -189,7 +189,7 @@ public class partida extends javax.swing.JFrame {
     }
     
     private boolean EsO(int fila, int columna) {
-        return (jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase("X"));
+        return (jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase("O"));
     }
     
     private void ActualitzaNouOrigen(int fila, int columna) {
