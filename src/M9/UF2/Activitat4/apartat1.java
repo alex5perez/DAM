@@ -30,15 +30,24 @@ public class apartat1 {
             System.out.println("Creat Client " + numClient + " amb " + articlesRandom + " articles.");
             System.out.println("Client " + numClient + " passa per caixa ");
             for (int j = 1; j < articlesRandom; j++) {
-                
+                tempsRandom = (int) (Math.random() * (6 - 0 + 1));
+                try {
+                    Thread.sleep(temps[tempsRandom] * 1000);
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if (j == articlesRandom) {
+                    System.out.println("Client " + numClient + " article " + j + "/" + articlesRandom + " (" + temps[tempsRandom] + " segons) FINALITZAT");
+                }else{
+                    System.out.println("Client " + numClient + " article " + j + "/" + articlesRandom + " (" + temps[tempsRandom] + " segons)");
+                }
             }
         }
-        
-        
+    
     }
     
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool (4);
+        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool (20);
         
         for (int i = 1; i <= 50; i++) {
             Caixa task = new Caixa(i);
