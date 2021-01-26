@@ -32,11 +32,11 @@ public class apartat1 {
             //Mostrem els clients i els seus numeros d'article a comprar
             System.out.println("Creat Client " + numClient + " amb " + articlesRandom + " articles.");
             System.out.println("Client " + numClient + " passa per caixa ");
-            for (int j = 1; j < articlesRandom; j++) {
+            for (int j = 1; j < articlesRandom + 1; j++) {
                 tempsRandom = (int) (Math.random() * (6 - 0 + 1));
                 try {
                     //Temps parara
-                    Thread.sleep(temps[tempsRandom] * 1000);
+                    Thread.sleep(temps[tempsRandom] * 500);
                 }catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -54,14 +54,14 @@ public class apartat1 {
     
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         //Fils
-        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool (20);
+        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(50);
         
         //Numero de clients
         for (int i = 1; i <= 50; i++) {
             Caixa task = new Caixa(i);
             executor.scheduleWithFixedDelay(task, 0 , 3, TimeUnit.SECONDS);
     }
-        executor.awaitTermination(20, TimeUnit.SECONDS);
+        executor.awaitTermination(50, TimeUnit.SECONDS);
         executor.shutdown();
     }
 }
