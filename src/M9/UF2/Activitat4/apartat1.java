@@ -54,14 +54,14 @@ public class apartat1 {
     
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         //Fils
-        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool (10);
+        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool (20);
         
         //Numero de clients
         for (int i = 1; i <= 50; i++) {
             Caixa task = new Caixa(i);
             executor.scheduleWithFixedDelay(task, 0 , 3, TimeUnit.SECONDS);
     }
-        executor.awaitTermination(10, TimeUnit.SECONDS);
+        executor.awaitTermination(20, TimeUnit.SECONDS);
         executor.shutdown();
     }
 }
