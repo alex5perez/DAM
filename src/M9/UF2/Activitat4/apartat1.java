@@ -36,7 +36,7 @@ public class apartat1 {
                 tempsRandom = (int) (Math.random() * (6 - 0 + 1));
                 try {
                     //Temps parara
-                    Thread.sleep(temps[tempsRandom] * 500);
+                    Thread.sleep(temps[tempsRandom] * 1000);
                 }catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -54,14 +54,14 @@ public class apartat1 {
     
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         //Fils
-        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(50);
+        ScheduledThreadPoolExecutor executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(20);
         
         //Numero de clients
         for (int i = 1; i <= 50; i++) {
             Caixa task = new Caixa(i);
-            executor.scheduleWithFixedDelay(task, 0 , 3, TimeUnit.SECONDS);
+            executor.scheduleWithFixedDelay(task, 0, 3, TimeUnit.SECONDS);
     }
-        executor.awaitTermination(50, TimeUnit.SECONDS);
+        executor.awaitTermination(20, TimeUnit.SECONDS);
         executor.shutdown();
     }
 }
