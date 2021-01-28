@@ -5,20 +5,28 @@
  */
 package M6.UF2.Activitat5;
 
-/**
- *
- * @author alexp
- */
+import java.util.Date;
+
+/*
+* File: Exercici5UF2M6.java 
+* Author: Alex Pérez Rubio
+* Date: 21-01-2021
+* Description: Activitat 5 PRACTICA UF2 M6
+*/
 public class partida extends javax.swing.JFrame {
     
     private static String[] posicionesTablero = new String[64];
     private static String stringx = "";
+    private boolean nuevo;
     
     /**
      * Creates new form partida
      */
-    public partida() {
+    public partida(boolean nuevo) {
         initComponents();
+        Date fecha = new Date();
+        
+        this.nuevo = nuevo;
     }
     
     
