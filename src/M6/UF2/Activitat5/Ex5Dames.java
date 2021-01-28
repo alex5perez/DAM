@@ -5,10 +5,12 @@
  */
 package M6.UF2.Activitat5;
 
-/**
- *
- * @author alexp
- */
+/*
+* File: Exercici5UF2M6.java 
+* Author: Alex Pérez Rubio
+* Date: 21-01-2021
+* Description: Activitat 5 PRACTICA UF2 M6
+*/
 public class Ex5Dames extends javax.swing.JFrame {
 
     /**
