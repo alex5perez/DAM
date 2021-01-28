@@ -27,6 +27,20 @@ public class partida extends javax.swing.JFrame {
         Date fecha = new Date();
         
         this.nuevo = nuevo;
+        
+        if (nuevo) {
+            for (int i = 0; i <= 7; i++) {
+                for (int j = 0; j <= 7; j++) {
+                    if (jTable1.getModel().getValueAt(i, j).toString().equals("")) {
+                        stringx += " ";
+                    }else {
+                        stringx += jTable1.getModel().getValueAt(i, j).toString();
+                    }
+                }
+            }
+            
+            
+        }
     }
     
     
@@ -119,7 +133,7 @@ public class partida extends javax.swing.JFrame {
         int numX = 0;
         
         fila = obtenirFilaClicada();
-        columna = obtenirFilaClicada();
+        columna = obtenirColumnaClicada();
         
         if (noHiHaOrigen()) {
             if (jugaX && EsX(fila, columna)) {
@@ -197,7 +211,7 @@ public class partida extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new partida().setVisible(true);
+                new partida(true).setVisible(true);
             }
         });
     }
@@ -214,7 +228,7 @@ public class partida extends javax.swing.JFrame {
     }
     
     private int obtenirColumnaClicada() {
-        return jTable1.getSelectedRow();
+        return jTable1.getSelectedColumn();
     }
     
     private boolean noHiHaOrigen() {
@@ -235,7 +249,7 @@ public class partida extends javax.swing.JFrame {
     }
     
     private void mostraError() {
-        jLabel1.setText("Tria una fitxe teva");
+        jLabel1.setText("Tria una fitxa teva");
     }
     
     private boolean movimentValid(int fila, int columna) {
@@ -277,6 +291,10 @@ public class partida extends javax.swing.JFrame {
     
     private void mostrarErrorMoviment() {
         jLabel1.setText("Moviment erroni");
+    }
+    
+    public void recuperarPartida(){
+        
     }
     
     private void plenarTable(String moviments){
