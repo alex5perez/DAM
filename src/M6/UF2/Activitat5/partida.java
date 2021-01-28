@@ -10,7 +10,10 @@ package M6.UF2.Activitat5;
  * @author alexp
  */
 public class partida extends javax.swing.JFrame {
-
+    
+    private static String[] posicionesTablero = new String[64];
+    private static String stringx = "";
+    
     /**
      * Creates new form partida
      */
@@ -122,6 +125,10 @@ public class partida extends javax.swing.JFrame {
             if (esBuit(fila, columna) || ocupatContrari(fila, columna)) {
                 mou(fila, columna);
             }
+        }else if (ocupatPropi(fila, columna)) {
+                ActualitzaNouOrigen(fila, columna);
+        }else{
+            mostrarErrorMoviment();
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -224,10 +231,32 @@ public class partida extends javax.swing.JFrame {
     }
     
     private void mou(int fila, int columna) {
-        
+        jTable1.setValueAt(jTable1.getModel().getValueAt(filaOrigen, columnaOrigen).toString(), fila, columna);
+        jTable1.setValueAt("", filaOrigen, columnaOrigen);
+        filaOrigen = -1;
+        columnaOrigen = -1;
+        jugaX = jugaO;
+        jugaO = !jugaX;
+        jLabel1.setText("");
+        guardarMoviment();
     }
     
     private boolean ocupatPropi(int fila, int columna) {
         return (jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase(jTable1.getModel().getValueAt(filaOrigen, columnaOrigen).toString()));
+    }
+    
+    private void mostrarErrorMoviment() {
+        jLabel1.setText("Moviment erroni");
+    }
+    
+    private void guardarMoviment() {
+        
+        for (int i = 0; i <= 7; i++) {
+            for (int j = 0; j <= 7; j++) {
+                if (jTable1.getModel().getValueAt(i, j).toString().equals("")) {
+                    stringx += jTable1.getModel().getValueAt(i, j).toString();
+                }
+            }
+        }
     }
 }
