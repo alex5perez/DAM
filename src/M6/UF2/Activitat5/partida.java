@@ -283,8 +283,16 @@ public class partida extends javax.swing.JFrame {
         }
     }
     
-    private void guardarGuanyador() {
-        
+    private void guardarGuanyador(char guanyador) {
+        for (int h = 0; h <= 7; h++) {
+            for (int j = 0; j <= 7; j++) {
+                if (jTable1.getModel().getValueAt(h, j).toString().equals("")) {
+                    stringx += " ";
+                }else {
+                    stringx += jTable1.getModel().getValueAt(h, j).toString();
+                }
+            }
+        }
     }
     
     private void guardarMoviment() {
@@ -293,8 +301,12 @@ public class partida extends javax.swing.JFrame {
             for (int j = 0; j <= 7; j++) {
                 if (jTable1.getModel().getValueAt(i, j).toString().equals("")) {
                     stringx += jTable1.getModel().getValueAt(i, j).toString();
+                }else {
+                    stringx += jTable1.getModel().getValueAt(i, j).toString();
                 }
             }
         }
+        
+        
     }
 }
