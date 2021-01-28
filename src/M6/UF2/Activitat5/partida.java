@@ -130,6 +130,28 @@ public class partida extends javax.swing.JFrame {
         }else{
             mostrarErrorMoviment();
         }
+        
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (jTable1.getModel().getValueAt(i, j).toString().equalsIgnoreCase("O")) {
+                    numO++;
+                }else if (jTable1.getModel().getValueAt(i, j).toString().equalsIgnoreCase("X")) {
+                    numX++;
+                }
+            }
+        }
+        
+        for (int i = 0; i < 8; i++) {
+            if (jTable1.getModel().getValueAt(0, i).toString().equalsIgnoreCase("O") || numX == 0) {
+                jTable1.setEnabled(false);
+                jLabel1.setText("Ha guanyat O");
+                guardarGuanyador('0');
+            }else if (jTable1.getModel().getValueAt(7, i).toString().equalsIgnoreCase("X") || numO == 0) {
+                jTable1.setEnabled(false);
+                jLabel1.setText("Ha guanyat X");
+                guardarGuanyador('X');
+            }
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
@@ -247,6 +269,22 @@ public class partida extends javax.swing.JFrame {
     
     private void mostrarErrorMoviment() {
         jLabel1.setText("Moviment erroni");
+    }
+    
+    private void plenarTable(String moviments){
+        char[] movimentsChar = moviments.toCharArray();
+        
+        int aux = 0;
+        for (int i = 0; i <= 7; i++) {
+            for (int f = 0; f <= 7; f++) {
+                jTable1.setValueAt( movimentsChar[aux],i,f);
+                aux++;
+            }
+        }
+    }
+    
+    private void guardarGuanyador() {
+        
     }
     
     private void guardarMoviment() {
