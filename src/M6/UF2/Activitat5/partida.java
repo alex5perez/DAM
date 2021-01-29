@@ -225,17 +225,19 @@ public class partida extends javax.swing.JFrame {
     private boolean EsX(int fila, int columna) {
         boolean isx = false;
         if (jTable1.getValueAt(fila, columna) == "X"); {
+        isx = true;
         
     }
-        return isx = true;
+        return isx;
     }
     
     private boolean EsO(int fila, int columna) {
         boolean iso = false;
         if (jTable1.getValueAt(fila, columna) == "O"); {
+        iso = true;
         
     }
-        return iso = true;
+        return iso;
     }
     
     private void ActualitzaNouOrigen(int fila, int columna) {
@@ -249,9 +251,9 @@ public class partida extends javax.swing.JFrame {
     
     private boolean movimentValid(int fila, int columna) {
         if (!ocupatPropi(fila, columna)) {
-            if (jugaX && (fila == filaOrigen + 1) && (columna == columnaOrigen + 1 || columna == columnaOrigen - 1)) {
+            if (jugaX && (fila == filaOrigen - 1) && (columna == columnaOrigen || columna == columnaOrigen - 1)) {
                 return true;
-            }else if (jugaO && (fila == filaOrigen - 1) && (columna == columnaOrigen + 1 || columna == columnaOrigen - 1)) {
+            }else if (jugaO && (fila == filaOrigen ) && (columna == columnaOrigen || columna == columnaOrigen - 1)) {
                 return true;
             }else{
                 return false;
@@ -262,7 +264,11 @@ public class partida extends javax.swing.JFrame {
     }
     
     private boolean esBuit(int fila, int columna) {
-        return (jTable1.getModel().getValueAt(fila, columna).equals(""));
+        boolean esBuit = false;
+        if(jTable1.getValueAt(fila, columna) == null) {
+            esBuit = true;
+        }
+        return esBuit;
     }
     
     private boolean ocupatContrari(int fila, int columna) {
@@ -275,14 +281,28 @@ public class partida extends javax.swing.JFrame {
     }
     
     private void mou(int fila, int columna) {
-        jTable1.setValueAt(jTable1.getModel().getValueAt(filaOrigen, columnaOrigen).toString(), fila, columna);
-        jTable1.setValueAt("", filaOrigen, columnaOrigen);
-        filaOrigen = -1;
-        columnaOrigen = -1;
-        jugaX = jugaO;
-        jugaO = !jugaX;
-        jLabel1.setText("");
-        guardarMoviment();
+        int conta = 0;
+        if (jugaO) {
+            jTable1.setValueAt("O", fila, columna);
+            columnaOrigen = -1;
+            filaOrigen = -1;
+            if(conta==0){
+                conta = 1;
+                jugaO = false;
+                jugaX = true;
+            }
+            
+        }else{
+            jTable1.setValueAt("X", fila, columna);
+            columnaOrigen = -1;
+            filaOrigen = -1;
+            if(conta==0){
+                conta = 1;
+                jugaO = false;
+                jugaX = true;
+        }
+            conta = 0;
+        }
     }
     
     private boolean ocupatPropi(int fila, int columna) {
