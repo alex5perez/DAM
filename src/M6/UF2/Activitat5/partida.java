@@ -6,6 +6,7 @@
 package M6.UF2.Activitat5;
 
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /*
 * File: Exercici5UF2M6.java 
@@ -146,6 +147,7 @@ public class partida extends javax.swing.JFrame {
         } else if (movimentValid(fila, columna)) {
             if (esBuit(fila, columna) || ocupatContrari(fila, columna)) {
                 mou(fila, columna);
+                guanyador(fila, columna);
             }
         }else if (ocupatPropi(fila, columna)) {
                 ActualitzaNouOrigen(fila, columna);
@@ -324,42 +326,11 @@ public class partida extends javax.swing.JFrame {
         
     }
     
-    private void plenarTable(String moviments){
-        char[] movimentsChar = moviments.toCharArray();
-        
-        int aux = 0;
-        for (int i = 0; i <= 7; i++) {
-            for (int f = 0; f <= 7; f++) {
-                jTable1.setValueAt( movimentsChar[aux],i,f);
-                aux++;
-            }
+    private void guanyador(int fila, int columna) {
+        if(EsO(fila, columna) && fila == 0) {
+            JOptionPane.showMessageDialog(null, "O guanya", "Partida Finalitzada", JOptionPane.PLAIN_MESSAGE);
+        }else if(EsX(fila, columna) && fila == 7) {
+            JOptionPane.showMessageDialog(null, "X guanya", "Partida Finalitzada", JOptionPane.PLAIN_MESSAGE);
         }
-    }
-    
-    private void guardarGuanyador(char guanyador) {
-        for (int h = 0; h <= 7; h++) {
-            for (int j = 0; j <= 7; j++) {
-                if (jTable1.getModel().getValueAt(h, j).toString().equals("")) {
-                    stringx += " ";
-                }else {
-                    stringx += jTable1.getModel().getValueAt(h, j).toString();
-                }
-            }
-        }
-    }
-    
-    private void guardarMoviment() {
-        
-        for (int i = 0; i <= 7; i++) {
-            for (int j = 0; j <= 7; j++) {
-                if (jTable1.getModel().getValueAt(i, j).toString().equals("")) {
-                    stringx += jTable1.getModel().getValueAt(i, j).toString();
-                }else {
-                    stringx += jTable1.getModel().getValueAt(i, j).toString();
-                }
-            }
-        }
-        
-        
     }
 }
