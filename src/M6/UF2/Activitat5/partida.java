@@ -250,17 +250,17 @@ public class partida extends javax.swing.JFrame {
     }
     
     private boolean movimentValid(int fila, int columna) {
-        if (!ocupatPropi(fila, columna)) {
-            if (jugaX && (fila == filaOrigen - 1) && (columna == columnaOrigen || columna == columnaOrigen - 1)) {
-                return true;
-            }else if (jugaO && (fila == filaOrigen ) && (columna == columnaOrigen || columna == columnaOrigen - 1)) {
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
+        boolean movimentValid = false;
+        int movimentcolumna = columna - columnaOrigen;
+        int movimentfila = fila - filaOrigen;
+        
+        if (jugaO && (movimentfila == -1) && ((movimentcolumna == 1) || (movimentcolumna == -1))){
+        movimentValid = true;
+        }else if (jugaX && (movimentfila == 1) && ((movimentcolumna == 1 || (movimentcolumna == -1 )))) {
+        movimentValid = true;
         }
+        return movimentValid;
+        
     }
     
     private boolean esBuit(int fila, int columna) {
