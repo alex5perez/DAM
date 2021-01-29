@@ -214,12 +214,17 @@ public class partida extends javax.swing.JFrame {
     }
     
     private boolean noHiHaOrigen() {
-        return (this.filaOrigen == -1);
+        boolean noOrigen = false;
+        if(filaOrigen == -1 || columnaOrigen == -1) {
+            noOrigen = true;
+        }
+        
+        return noOrigen;
     }
     
     private boolean EsX(int fila, int columna) {
         boolean isx = false;
-        if (jTable1.getModel().getValueAt(fila, columna) == ("X")); {
+        if (jTable1.getValueAt(fila, columna) == "X"); {
         
     }
         return isx = true;
@@ -227,7 +232,7 @@ public class partida extends javax.swing.JFrame {
     
     private boolean EsO(int fila, int columna) {
         boolean iso = false;
-        if (jTable1.getModel().getValueAt(fila, columna) == ("O")); {
+        if (jTable1.getValueAt(fila, columna) == "O"); {
         
     }
         return iso = true;
