@@ -284,6 +284,7 @@ public class partida extends javax.swing.JFrame {
         int conta = 0;
         if (jugaO) {
             jTable1.setValueAt("O", fila, columna);
+            jTable1.setValueAt(null, filaOrigen, columnaOrigen);
             columnaOrigen = -1;
             filaOrigen = -1;
             if(conta==0){
@@ -294,12 +295,13 @@ public class partida extends javax.swing.JFrame {
             
         }else{
             jTable1.setValueAt("X", fila, columna);
+            jTable1.setValueAt(null, filaOrigen, columnaOrigen);
             columnaOrigen = -1;
             filaOrigen = -1;
             if(conta==0){
                 conta = 1;
-                jugaO = false;
-                jugaX = true;
+                jugaO = true;
+                jugaX = false;
         }
             conta = 0;
         }
