@@ -153,29 +153,11 @@ public class partida extends javax.swing.JFrame {
             mostrarErrorMoviment();
         }
         
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (jTable1.getModel().getValueAt(i, j).toString().equalsIgnoreCase("O")) {
-                    numO++;
-                }else if (jTable1.getModel().getValueAt(i, j).toString().equalsIgnoreCase("X")) {
-                    numX++;
-                }
-            }
-        }
         
-        for (int i = 0; i < 8; i++) {
-            if (jTable1.getModel().getValueAt(0, i).toString().equalsIgnoreCase("O") || numX == 0) {
-                jTable1.setEnabled(false);
-                jLabel1.setText("Ha guanyat O");
-                guardarGuanyador('0');
-            }else if (jTable1.getModel().getValueAt(7, i).toString().equalsIgnoreCase("X") || numO == 0) {
-                jTable1.setEnabled(false);
-                jLabel1.setText("Ha guanyat X");
-                guardarGuanyador('X');
-            }
-        }
+        
+        
     }//GEN-LAST:event_jTable1MouseClicked
-
+    
     /**
      * @param args the command line arguments
      */
@@ -236,11 +218,19 @@ public class partida extends javax.swing.JFrame {
     }
     
     private boolean EsX(int fila, int columna) {
-        return (jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase("X"));
+        boolean isx = false;
+        if (jTable1.getModel().getValueAt(fila, columna) == ("X")); {
+        
+    }
+        return isx = true;
     }
     
     private boolean EsO(int fila, int columna) {
-        return (jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase("O"));
+        boolean iso = false;
+        if (jTable1.getModel().getValueAt(fila, columna) == ("O")); {
+        
+    }
+        return iso = true;
     }
     
     private void ActualitzaNouOrigen(int fila, int columna) {
@@ -271,7 +261,12 @@ public class partida extends javax.swing.JFrame {
     }
     
     private boolean ocupatContrari(int fila, int columna) {
-        return (!jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase(jTable1.getModel().getValueAt(filaOrigen, columnaOrigen).toString()));
+         boolean isOcupatContrari = false;
+        if ((jugaX == true && EsO(fila, columna) == true) || (jugaO == true && EsX(fila, columna) == true)) {
+            isOcupatContrari = true;
+        }
+        
+        return isOcupatContrari;
     }
     
     private void mou(int fila, int columna) {
@@ -286,7 +281,12 @@ public class partida extends javax.swing.JFrame {
     }
     
     private boolean ocupatPropi(int fila, int columna) {
-        return (jTable1.getModel().getValueAt(fila, columna).toString().equalsIgnoreCase(jTable1.getModel().getValueAt(filaOrigen, columnaOrigen).toString()));
+        boolean isOcupatPropi = false;
+        if ((jugaX == true && EsX(fila, columna) == true) || (jugaO == true && EsO(fila, columna) == true)) {
+            isOcupatPropi = true;
+        }
+        
+        return isOcupatPropi;
     }
     
     private void mostrarErrorMoviment() {
