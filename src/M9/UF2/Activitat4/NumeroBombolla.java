@@ -15,11 +15,24 @@ public class NumeroBombolla implements Runnable{
     int grup;
     
     public NumeroBombolla(int[] numerosBombolla, int grup) {
-        
+        this.array = numerosBombolla;
+        this.grup = grup;
     }
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int aux, i, j;
+        int[] grupBom;
+        for (i = 1; i < array.length; i++) {
+            for (j= 0; i < array.length - i; j++) {
+                
+                if (array[j] > array[j + 1]) {
+                    grupBom = array.clone();
+                    aux = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = aux;
+                }
+            }
+        }
     }
 }
