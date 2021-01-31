@@ -14,14 +14,14 @@
         <property name="columnaOrigen" type="int">
             <column name="columnaOrigen" not-null="true" />
         </property>
-        <property name="columnaDestino" type="int">
-            <column name="columnaDestino" not-null="true" />
+        <property name="columna" type="int">
+            <column name="columna" not-null="true" />
         </property>
         <property name="filaOrigen" type="int">
             <column name="filaOrigen" not-null="true" />
         </property>
-        <property name="filaDestino" type="int">
-            <column name="filaDestino" not-null="true" />
+        <property name="fila" type="int">
+            <column name="fila" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
