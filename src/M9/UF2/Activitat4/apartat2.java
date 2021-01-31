@@ -12,5 +12,16 @@ package M9.UF2.Activitat4;
 * Description: Activitat 4 PRACTICA UF2 M9
 */
 public class apartat2 {
+       
+    static int[] array = {0, 0, 0, 0};
     
+    public static void main(String[] args) {
+        
+        int[] numRandom = new int[20];
+        int numeros = (9 - 1);
+                
+        NumeroBombolla[] numerosBombolla = NumeroBombolla[4];
+        
+        
+    }
 }
