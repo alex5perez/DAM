@@ -73,7 +73,7 @@ public class Ex5Dames extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        partida partida = new partida(false);
+        novapartida partida = new novapartida(false);
         partida.setVisible(true);
         partida.recuperarPartida();
         this.dispose();
@@ -81,7 +81,7 @@ public class Ex5Dames extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        new partida(true).setVisible(true);
+        new novapartida(true).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
