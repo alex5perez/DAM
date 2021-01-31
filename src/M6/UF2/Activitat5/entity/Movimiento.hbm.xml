@@ -4,11 +4,11 @@
 <!-- Generated 30-ene-2021 17:44:43 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="M6.UF2.Activitat5.entity.Movimiento" table="movimiento" catalog="damas" optimistic-lock="version">
-        <id name="idMovimiento" type="int">
+        <id name="idMovimiento" type="java.lang.Integer">
             <column name="idMovimiento" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
-        <property name="idPartida" type="int">
+        <property name="partida" class="entity.Partida" fetch="select">
             <column name="idPartida" not-null="true" />
         </property>
         <property name="columnaOrigen" type="int">
