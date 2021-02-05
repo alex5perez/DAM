@@ -19,9 +19,9 @@ public class Movimiento  implements java.io.Serializable {
 
     @Id @GeneratedValue
     @Column(name = "idMovimiento")
-     private int idMovimiento;
+     private Integer idMovimiento;
     @Column(name = "idPartida")
-     private int idPartida;
+     private Partida partida;
      @Column(name = "columnaOrigen")
      private int columnaOrigen;
      @Column(name = "columna")
@@ -35,9 +35,8 @@ public class Movimiento  implements java.io.Serializable {
     public Movimiento() {
     }
 
-    public Movimiento(int idMovimiento, int idPartida, int columnaOrigen, int columna, int filaOrigen, int fila) {
-       this.idMovimiento = idMovimiento;
-       this.idPartida = idPartida;
+    public Movimiento(Partida partida, int columnaOrigen, int columna, int filaOrigen, int fila) {
+       this.partida = partida;
        this.columnaOrigen = columnaOrigen;
        this.columna = columna;
        this.filaOrigen = filaOrigen;
@@ -48,15 +47,15 @@ public class Movimiento  implements java.io.Serializable {
         return this.idMovimiento;
     }
     
-    public void setIdMovimiento(int idMovimiento) {
+    public void setIdMovimiento(Integer idMovimiento) {
         this.idMovimiento = idMovimiento;
     }
-    public int getIdPartida() {
-        return this.idPartida;
+    public Partida getPartida() {
+        return this.partida;
     }
     
-    public void setIdPartida(int idPartida) {
-        this.idPartida = idPartida;
+    public void setPartida(Partida partida) {
+        this.partida = partida;
     }
     public int getColumnaOrigen() {
         return this.columnaOrigen;
