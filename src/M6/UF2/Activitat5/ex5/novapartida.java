@@ -5,9 +5,6 @@
  */
 package M6.UF2.Activitat5.ex5;
 
-import M6.UF2.Activitat5.NewHibernateUtil;
-import M6.UF2.Activitat5.entity.Movimiento;
-import M6.UF2.Activitat5.entity.Partida;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -350,7 +347,7 @@ public class novapartida extends javax.swing.JFrame {
             session.beginTransaction();
             session.saveOrUpdate(partida);
             session.getTransaction().commit();
-        }catch (HibernateException e) {
+        }catch (HibernateException he) {
             session.close();
         }
         
