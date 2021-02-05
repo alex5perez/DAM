@@ -22,17 +22,15 @@ public class Partida  implements java.io.Serializable {
     @Column(name = "data")
      private Date data;
     @Column(name = "guanyador")
-     private char guanyador;
+     private String guanyador;
 
     public Partida() {
     }
 
-    public Partida(int id, Date data, char guanyador) {
-       this.id = id;
-       this.data = data;
-       this.guanyador = guanyador;
+    public Partida(String guanyador) {
+        this.guanyador = guanyador;
     }
-   
+ 
     public int getId() {
         return this.id;
     }
@@ -47,11 +45,11 @@ public class Partida  implements java.io.Serializable {
     public void setData(Date data) {
         this.data = data;
     }
-    public char getGuanyador() {
+    public String getGuanyador() {
         return this.guanyador;
     }
     
-    public void setGuanyador(char guanyador) {
+    public void setGuanyador(String guanyador) {
         this.guanyador = guanyador;
     }
 
