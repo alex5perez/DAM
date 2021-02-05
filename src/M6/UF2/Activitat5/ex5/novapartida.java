@@ -8,7 +8,6 @@ package M6.UF2.Activitat5.ex5;
 import M6.UF2.Activitat5.NewHibernateUtil;
 import M6.UF2.Activitat5.entity.Movimiento;
 import M6.UF2.Activitat5.entity.Partida;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -21,9 +20,6 @@ import org.hibernate.Session;
 */
 public class novapartida extends javax.swing.JFrame {
     
-    private static String[] posicionesTablero = new String[64];
-    private static String stringx = "";
-    private boolean nuevo;
     static Session session;
     static Partida partida;
     static Movimiento movimiento;
@@ -31,25 +27,10 @@ public class novapartida extends javax.swing.JFrame {
     /**
      * Creates new form partida
      */
-    public novapartida(boolean nuevo) {
+    public novapartida() {
         initComponents();
-        Date fecha = new Date();
-        
-        this.nuevo = nuevo;
-        
-        if (nuevo) {
-            for (int i = 0; i <= 7; i++) {
-                for (int j = 0; j <= 7; j++) {
-                    if (jTable1.getModel().getValueAt(i, j).toString().equals("")) {
-                        stringx += " ";
-                    }else {
-                        stringx += jTable1.getModel().getValueAt(i, j).toString();
-                    }
-                }
-            }
-            
-            
-        }
+        partida = new Partida("");
+        noupartida("?");
     }
     
     
@@ -138,8 +119,6 @@ public class novapartida extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int fila;
         int columna;
-        int numO = 0;
-        int numX = 0;
         
         fila = obtenirFilaClicada();
         columna = obtenirColumnaClicada();
@@ -204,7 +183,7 @@ public class novapartida extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new novapartida(true).setVisible(true);
+                new novapartida().setVisible(true);
             }
         });
     }
@@ -257,7 +236,9 @@ public class novapartida extends javax.swing.JFrame {
     }
     
     private void mostraError() {
-        jLabel1.setText("Tria una fitxa teva");
+        JOptionPane.showMessageDialog(null, "Error", "Partida Finalitzada", JOptionPane.ERROR_MESSAGE);
+        filaOrigen = -1;
+        columnaOrigen = -1;
     }
     
     private boolean movimentValid(int fila, int columna) {
@@ -328,7 +309,9 @@ public class novapartida extends javax.swing.JFrame {
     }
     
     private void mostrarErrorMoviment() {
-        jLabel1.setText("Moviment erroni");
+        JOptionPane.showMessageDialog(null, "Error", "Partida Finalitzada", JOptionPane.ERROR_MESSAGE);
+        filaOrigen = -1;
+        columnaOrigen = -1;
     }
     
     public void recuperarPartida(){
@@ -361,12 +344,17 @@ public class novapartida extends javax.swing.JFrame {
     }
     
     public static void noupartida(String guanyador){
-        //partida.setGuanyador(guanyador);
+        partida.setGuanyador(guanyador);
+        try{
+            session = NewHibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.saveOrUpdate(partida);
+            session.getTransaction().commit();
+        }catch (HibernateException e) {
+            session.close();
+        }
         
         
     }
-    
-    public void partidanova(String guanyador){
-        
-    }
+
 }
