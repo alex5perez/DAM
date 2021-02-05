@@ -344,13 +344,9 @@ public class novapartida extends javax.swing.JFrame {
     }
     
        public static void movimentnou(int filaOrigen, int columnaOrigen, int fila, int columna){
-       //movimiento = new Movimiento(partida, columnaOrigen, columna, filaOrigen, fila);
+       movimiento = new Movimiento(partida, columnaOrigen, columna, filaOrigen, fila);
+       movimiento.setPartida(partida);
        
-       //movimiento.setIdPartida(idPartida);
-       movimiento.setColumnaOrigen(columnaOrigen);
-       movimiento.setColumna(columna);
-       movimiento.setFilaOrigen(filaOrigen);
-       movimiento.setFila(fila);
        
        try {
            session = NewHibernateUtil.getSessionFactory().openSession();
