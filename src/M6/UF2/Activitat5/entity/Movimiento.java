@@ -1,5 +1,5 @@
 package M6.UF2.Activitat5.entity;
-// Generated 05-feb-2021 20:11:19 by Hibernate Tools 4.3.1
+// Generated 06-feb-2021 17:17:20 by Hibernate Tools 4.3.1
 
 
 
@@ -12,19 +12,19 @@ public class Movimiento  implements java.io.Serializable {
      private Integer idMovimiento;
      private Partida partida;
      private int columnaOrigen;
-     private int columnaDestino;
+     private int columna;
      private int filaOrigen;
-     private int filaDestino;
+     private int fila;
 
     public Movimiento() {
     }
 
-    public Movimiento(Partida partida, int columnaOrigen, int columnaDestino, int filaOrigen, int filaDestino) {
+    public Movimiento(Partida partida, int columnaOrigen, int columna, int filaOrigen, int fila) {
        this.partida = partida;
        this.columnaOrigen = columnaOrigen;
-       this.columnaDestino = columnaDestino;
+       this.columna = columna;
        this.filaOrigen = filaOrigen;
-       this.filaDestino = filaDestino;
+       this.fila = fila;
     }
    
     public Integer getIdMovimiento() {
@@ -48,12 +48,12 @@ public class Movimiento  implements java.io.Serializable {
     public void setColumnaOrigen(int columnaOrigen) {
         this.columnaOrigen = columnaOrigen;
     }
-    public int getColumnaDestino() {
-        return this.columnaDestino;
+    public int getColumna() {
+        return this.columna;
     }
     
-    public void setColumnaDestino(int columnaDestino) {
-        this.columnaDestino = columnaDestino;
+    public void setColumna(int columna) {
+        this.columna = columna;
     }
     public int getFilaOrigen() {
         return this.filaOrigen;
@@ -62,12 +62,12 @@ public class Movimiento  implements java.io.Serializable {
     public void setFilaOrigen(int filaOrigen) {
         this.filaOrigen = filaOrigen;
     }
-    public int getFilaDestino() {
-        return this.filaDestino;
+    public int getFila() {
+        return this.fila;
     }
     
-    public void setFilaDestino(int filaDestino) {
-        this.filaDestino = filaDestino;
+    public void setFila(int fila) {
+        this.fila = fila;
     }
 
 
