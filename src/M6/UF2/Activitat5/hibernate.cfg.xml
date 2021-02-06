@@ -47,7 +47,5 @@ Contributor(s):
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
-    <mapping resource="M6/UF2/Activitat5/entity/Movimiento.hbm.xml"/>
-    <mapping resource="M6/UF2/Activitat5/entity/Partida.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
