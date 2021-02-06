@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 05-feb-2021 20:11:19 by Hibernate Tools 4.3.1 -->
+<!-- Generated 06-feb-2021 17:17:20 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="M6.UF2.Activitat5.entity.Movimiento" table="movimiento" catalog="damas" optimistic-lock="version">
         <id name="idMovimiento" type="java.lang.Integer">
@@ -14,14 +14,14 @@
         <property name="columnaOrigen" type="int">
             <column name="columnaOrigen" not-null="true" />
         </property>
-        <property name="columnaDestino" type="int">
-            <column name="columnaDestino" not-null="true" />
+        <property name="columna" type="int">
+            <column name="columna" not-null="true" />
         </property>
         <property name="filaOrigen" type="int">
             <column name="filaOrigen" not-null="true" />
         </property>
-        <property name="filaDestino" type="int">
-            <column name="filaDestino" not-null="true" />
+        <property name="fila" type="int">
+            <column name="fila" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
