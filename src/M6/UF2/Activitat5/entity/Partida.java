@@ -1,5 +1,5 @@
 package M6.UF2.Activitat5.entity;
-// Generated 05-feb-2021 20:11:19 by Hibernate Tools 4.3.1
+// Generated 06-feb-2021 17:17:20 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,18 +12,18 @@ public class Partida  implements java.io.Serializable {
 
 
      private Integer idPartida;
-     private String ganador;
+     private String guanyador;
      private Set movimientos = new HashSet(0);
 
     public Partida() {
     }
 
 	
-    public Partida(String ganador) {
-        this.ganador = ganador;
+    public Partida(String guanyador) {
+        this.guanyador = guanyador;
     }
-    public Partida(String ganador, Set movimientos) {
-       this.ganador = ganador;
+    public Partida(String guanyador, Set movimientos) {
+       this.guanyador = guanyador;
        this.movimientos = movimientos;
     }
    
@@ -34,12 +34,12 @@ public class Partida  implements java.io.Serializable {
     public void setIdPartida(Integer idPartida) {
         this.idPartida = idPartida;
     }
-    public String getGanador() {
-        return this.ganador;
+    public String getGuanyador() {
+        return this.guanyador;
     }
     
-    public void setGanador(String ganador) {
-        this.ganador = ganador;
+    public void setGuanyador(String guanyador) {
+        this.guanyador = guanyador;
     }
     public Set getMovimientos() {
         return this.movimientos;
