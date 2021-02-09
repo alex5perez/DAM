@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import sakila.util.HibernateUtil;
+import M6.UF2.Activitat4.sakila.util.HibernateUtil;
 import M6.UF2.Activitat4.sakila.entity.Actor;
 
 /*
