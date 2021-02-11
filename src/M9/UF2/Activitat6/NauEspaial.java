@@ -57,7 +57,8 @@ public class NauEspaial extends javax.swing.JFrame {
 class PanelNau extends JPanel implements Runnable{
     private int numNaus=3;    
     Nau[] nau;
-
+    Nau nauPropia;
+    
     public PanelNau(){        
         nau = new Nau[numNaus];
         for (int i=0;i<nau.length;i++) {
@@ -67,8 +68,12 @@ class PanelNau extends JPanel implements Runnable{
             int posY=rand.nextInt(100)+30;
             int dX=rand.nextInt(3)+1;
             int dY=rand.nextInt(3)+1;
-            nau[i]= new Nau(i,posX,posY,dX,dY,velocitat);
+            String nomNau = Integer.toString(i);
+            nau[i]= new Nau(nomNau,posX,posY,dX,dY,velocitat);
             }
+        
+        nauPropia = new Nau("NauNostre", 200, 450, 0, 0, 100);
+        
         Thread n = new Thread(this);
         n.start();   
         }
@@ -82,15 +87,16 @@ class PanelNau extends JPanel implements Runnable{
             }                   
         }
 
-    public void paintComponent(Graphics g) {
+    public synchronized void paintComponent(Graphics g) {
         super.paintComponent(g);
         for(int i=0; i<nau.length;++i) nau[i].pinta(g);
+        nauPropia.pinta(g);
         }
     }
 
 
 class Nau extends Thread {
-    private int numero;
+    private String nomNau;
     private int x,y;
     private int dsx,dsy,v;
     private int tx = 10;
@@ -99,14 +105,20 @@ class Nau extends Thread {
     private String img = "/images/nau.png";
     private Image image;
 
-    public Nau(int numero, int x, int y, int dsx, int dsy, int v ) {
-        this.numero = numero;
+    public Nau(String nomNau, int x, int y, int dsx, int dsy, int v ) {
+        this.nomNau = nomNau;
         this.x=x;
         this.y=y;
         this.dsx=dsx;
         this.dsy=dsy;
         this.v=v;
-        image = new ImageIcon(Nau.class.getResource("nau.png")).getImage();
+        
+        if (this.nomNau == "NauNostra") {
+            image = new ImageIcon(Nau.class.getResource("nau.png")).getImage();
+        }else {
+            image = new ImageIcon(Nau.class.getResource("nauenemiga.png")).getImage();
+        }
+        
         Thread t = new Thread(this);
         t.start();
         }
@@ -115,7 +127,7 @@ class Nau extends Thread {
         return v;
         }
     
-    public void moure (){
+    public synchronized void moure (){
         x=x + dsx;
         y=y + dsy;
         // si arriva als marges ...
@@ -123,7 +135,7 @@ class Nau extends Thread {
         if ( y >= 500 - ty || y<=ty ) dsy = - dsy;
         }
     
-    public void pinta (Graphics g) {
+    public synchronized void pinta (Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
         g2d.drawImage(this.image, x, y, null);
         }
@@ -131,7 +143,7 @@ class Nau extends Thread {
 
     public void run() {
         while (true) {
-            System.out.println("Movent nau numero " + this.numero);
+            System.out.println("Movent nau numero " + this.nomNau);
             try { Thread.sleep(this.v); } catch (Exception e) {}
             moure();
             }
