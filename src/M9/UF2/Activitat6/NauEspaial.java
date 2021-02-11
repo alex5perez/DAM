@@ -48,7 +48,7 @@ public class NauEspaial extends javax.swing.JFrame {
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setTitle("Naus Espaials");
         f.setContentPane(new PanelNau());
-        f.setSize(880, 560);
+        f.setSize(880, 860);
         f.setVisible(true);
         }
     }
@@ -72,7 +72,7 @@ class PanelNau extends JPanel implements Runnable{
             nau[i]= new Nau(nomNau,posX,posY,dX,dY,velocitat);
             }
         
-        nauPropia = new Nau("NauNostre", 200, 450, 0, 0, 100);
+        nauPropia = new Nau("NauNostre", 350, 650, 0, 0, 100);
         
         Thread n = new Thread(this);
         n.start();   
@@ -102,7 +102,7 @@ class Nau extends Thread {
     private int tx = 10;
     private int ty = 10;
 
-    private String img = "/images/nau.png";
+    private String img = "nau.png";
     private Image image;
 
     public Nau(String nomNau, int x, int y, int dsx, int dsy, int v ) {
@@ -112,12 +112,12 @@ class Nau extends Thread {
         this.dsx=dsx;
         this.dsy=dsy;
         this.v=v;
-        
-        if (this.nomNau == "NauNostra") {
+        //No funciona posar un altra imatge per les altres naus
+        //if (this.nomNau == "NauNostra") {
             image = new ImageIcon(Nau.class.getResource("nau.png")).getImage();
-        }else {
-            image = new ImageIcon(Nau.class.getResource("nauenemiga.png")).getImage();
-        }
+        //}else {
+            //image = new ImageIcon(Nau.class.getResource("nauenemiga.png")).getImage();
+        //}
         
         Thread t = new Thread(this);
         t.start();
@@ -131,8 +131,8 @@ class Nau extends Thread {
         x=x + dsx;
         y=y + dsy;
         // si arriva als marges ...
-        if ( x>= 450 - tx || x<= tx) dsx = - dsx;
-        if ( y >= 500 - ty || y<=ty ) dsy = - dsy;
+        if ( x>= 700 - tx || x<= tx) dsx = - dsx;
+        if ( y >= 700 - ty || y<=ty ) dsy = - dsy;
         }
     
     public synchronized void pinta (Graphics g) {
