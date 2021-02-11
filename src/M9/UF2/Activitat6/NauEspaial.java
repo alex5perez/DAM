@@ -8,6 +8,7 @@ package M9.UF2.Activitat6;
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
+import java.awt.event.*;
 /**
  *
  * @author alexp
@@ -54,7 +55,7 @@ public class NauEspaial extends javax.swing.JFrame {
     }
 
 
-class PanelNau extends JPanel implements Runnable{
+class PanelNau extends JPanel implements Runnable, KeyListener{
     private int numNaus=3;    
     Nau[] nau;
     Nau nauPropia;
@@ -76,6 +77,9 @@ class PanelNau extends JPanel implements Runnable{
         
         Thread n = new Thread(this);
         n.start();   
+        
+        addKeyListener(this);
+        setFocusable(true);
         }
 
     public void run() {
@@ -92,8 +96,34 @@ class PanelNau extends JPanel implements Runnable{
         for(int i=0; i<nau.length;++i) nau[i].pinta(g);
         nauPropia.pinta(g);
         }
-    }
+    
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+    
+    }
+    @Override
+    public void keyPressed(KeyEvent e) {
+        //System.out.println("Key pressed code=" + e.getKeyCode() + ", char=" + e.getKeyChar());
+        if (e.getKeyCode() == 37) {
+            nauPropia.esquerra();
+        }//System.out.println("a la esquerra");
+        if (e.getKeyCode() == 39) {
+            nauPropia.dreta();
+        }//System.out.println("a la dreta");
+    }
+    
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == 37) {
+            nauPropia.parar();
+        }
+        if (e.getKeyCode() == 39) {
+            nauPropia.parar();
+        }
+    }
+    
+}
 
 class Nau extends Thread {
     private String nomNau;
@@ -144,4 +174,16 @@ class Nau extends Thread {
             moure();
             }
         }
+    //Moure nau esquerra y dreta
+    public void esquerra(){
+        this.dsx = -10;
+    }
+    
+    public void dreta(){
+        this.dsx = 10;
+    }
+    
+    public void parar(){
+        this.dsx = 0;
+    }
     }
