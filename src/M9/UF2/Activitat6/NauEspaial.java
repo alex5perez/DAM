@@ -112,12 +112,8 @@ class Nau extends Thread {
         this.dsx=dsx;
         this.dsy=dsy;
         this.v=v;
-        //No funciona posar un altra imatge per les altres naus
-        //if (this.nomNau == "NauNostra") {
+        
             image = new ImageIcon(Nau.class.getResource("nau.png")).getImage();
-        //}else {
-            //image = new ImageIcon(Nau.class.getResource("nauenemiga.png")).getImage();
-        //}
         
         Thread t = new Thread(this);
         t.start();
