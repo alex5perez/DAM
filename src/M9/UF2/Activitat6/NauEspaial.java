@@ -94,7 +94,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     public synchronized void paintComponent(Graphics g) {
         super.paintComponent(g);
         for(int i=0; i<nau.length;++i) nau[i].pinta(g);
-        nauPropia.pinta(g);
+        nauPropia.pinta2(g);
         }
     
 
@@ -131,9 +131,12 @@ class Nau extends Thread {
     private int dsx,dsy,v;
     private int tx = 10;
     private int ty = 10;
+    
+    
 
-    private String img = "nau.png";
     private Image image;
+    private Image image2;
+    
 
     public Nau(String nomNau, int x, int y, int dsx, int dsy, int v ) {
         this.nomNau = nomNau;
@@ -143,7 +146,8 @@ class Nau extends Thread {
         this.dsy=dsy;
         this.v=v;
         
-            image = new ImageIcon(Nau.class.getResource("nau.png")).getImage();
+            image = new ImageIcon(Nau.class.getResource("nauenemiga.png")).getImage();
+            image2 = new ImageIcon(Nau.class.getResource("nau.png")).getImage();
         
         Thread t = new Thread(this);
         t.start();
@@ -164,6 +168,11 @@ class Nau extends Thread {
     public synchronized void pinta (Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
         g2d.drawImage(this.image, x, y, null);
+        }
+    
+    public synchronized void pinta2 (Graphics g) {
+        Graphics2D g2d = (Graphics2D)g;
+        g2d.drawImage(this.image2, x, y, null);
         }
     
 
