@@ -104,6 +104,10 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         nauPropia.pinta2(g);
         }
     
+    public synchronized void novabala() {
+        
+    }
+    
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -127,6 +131,9 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         }
         if (e.getKeyCode() == 39) {
             nauPropia.parar();
+        }
+        if (e.getKeyCode() == 32) {
+            novabala();
         }
     }
     
