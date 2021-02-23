@@ -112,7 +112,11 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     }
     
     public synchronized void novabala() {
-        
+        if (contador < 5) {
+            if (shots[contador] == null) {
+                shots[contador] = new Shot(nauPropia.getX() + 22, nauPropia.getY() - 27, nauPropia.velocitat());
+            }
+        }
     }
     
 
@@ -221,6 +225,14 @@ class Nau extends Thread {
     public int velocitat (){
         return v;
         }
+    
+    public int getX(){
+        return this.x;
+    }
+    
+    public int getY(){
+        return this.y;
+    }
     
     public synchronized void moure (){
         x=x + dsx;
