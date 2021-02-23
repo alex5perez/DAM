@@ -117,6 +117,8 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
                 shots[contador] = new Shot(nauPropia.getX() + 22, nauPropia.getY() - 27, nauPropia.velocitat());
             }
         }
+        
+        contador++;
     }
     
 
