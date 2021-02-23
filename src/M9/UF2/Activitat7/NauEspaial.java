@@ -68,6 +68,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     Nau nauPropia;
     Shot[] shots = new Shot[5];
     Shot shot;
+    private static int contador = 0;
     
     public PanelNau(){        
         nau = new Nau[numNaus];
@@ -105,6 +106,10 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         for(int i=0; i<nau.length;++i) nau[i].pinta(g);
         nauPropia.pinta2(g);
         }
+    
+    public static void setContador(int c) {
+        contador = c;
+    }
     
     public synchronized void novabala() {
         
@@ -145,6 +150,7 @@ class Shot extends Thread {
     ThreadGroup shots = new ThreadGroup("");
     private int x,y;
     private int v;
+    private int i = 0;
     private Image image;
     
     public Shot(int x, int y, int v) {
@@ -173,7 +179,14 @@ class Shot extends Thread {
     }
 
     private void moure() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int dsy = 30;
+        y = y - dsy;
+        if (y <= 0) {
+            if (i < 1) {
+                PanelNau.setContador(0);
+                i++;
+            }
+        }
     }
 }
 
