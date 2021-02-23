@@ -179,7 +179,7 @@ class Shot extends Thread {
     
     public synchronized void pintaShot(Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
-        g2d.drawImage(this.image, x, y, null);
+        g2d.drawImage(this.image, this.x, this.y, null);
     }
 
     private void moure() {
