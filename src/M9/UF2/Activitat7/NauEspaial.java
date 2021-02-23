@@ -142,11 +142,13 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
 class Shot extends Thread {
     ThreadGroup shots = new ThreadGroup("");
     private int x,y;
+    private int v;
     private Image image;
     
-    public Shot(int x, int y) {
+    public Shot(int x, int y, int v) {
         this.x=x;
         this.y=y;
+        this.v=v;
         
         image = new ImageIcon(Nau.class.getResource("bala.png")).getImage();
         
@@ -154,10 +156,22 @@ class Shot extends Thread {
         t.start();
     }
     
+    public void run() {
+        while (true) {
+            //System.out.println("Movent nau numero " + this.nomNau);
+            try { Thread.sleep(this.v); } catch (Exception e) {}
+            moure();
+            }
+    }
+    
     
     public synchronized void pintaShot(Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
         g2d.drawImage(this.image, x, y, null);
+    }
+
+    private void moure() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 
