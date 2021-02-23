@@ -62,7 +62,8 @@ public class NauEspaial extends javax.swing.JFrame {
 
 
 class PanelNau extends JPanel implements Runnable, KeyListener{
-    private int numNaus=3;    
+    //10 Naus
+    private int numNaus=10;    
     Nau[] nau;
     Nau nauPropia;
     
@@ -129,6 +130,22 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         }
     }
     
+}
+
+class Shot extends Thread {
+    ThreadGroup shots = new ThreadGroup("");
+    private int x,y;
+    private Image image;
+    
+    public Shot(int x, int y) {
+        this.x=x;
+        this.y=y;
+        
+        image = new ImageIcon(Nau.class.getResource("bala.png")).getImage();
+        
+        Thread t = new Thread(this);
+        t.start();
+    }
 }
 
 class Nau extends Thread {
