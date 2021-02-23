@@ -153,6 +153,12 @@ class Shot extends Thread {
         Thread t = new Thread(this);
         t.start();
     }
+    
+    
+    public synchronized void pintaShot(Graphics g) {
+        Graphics2D g2d = (Graphics2D)g;
+        g2d.drawImage(this.image, x, y, null);
+    }
 }
 
 class Nau extends Thread {
