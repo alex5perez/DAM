@@ -66,6 +66,8 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     private int numNaus=10;    
     Nau[] nau;
     Nau nauPropia;
+    Shot[] shots = new Shot[5];
+    Shot shot;
     
     public PanelNau(){        
         nau = new Nau[numNaus];
