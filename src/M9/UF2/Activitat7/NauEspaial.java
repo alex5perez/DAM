@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+A partir del codi que es subministra:
+1) Si es pitja la tecla d’espai la nostra nau ha de disparar
+2) Per a cada dispar s’ha de crear un fil que gestionarà un raig làser.
+3) El raig làser ha de partir de la nostra nau i anar cap amunt amb certa velocitat
+4) Si el raig làser és prop d’alguna nau que no sigui la nostra, l’ha de destruir
+5) El joc ha d’acabar si destruïm totes les naus (inicialment, enlloc de 3 que n’hi hagi 10)
+
  */
 package M9.UF2.Activitat7;
 
@@ -9,10 +13,12 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
-/**
- *
- * @author alexp
- */
+/*
+* File: NauEspaial.java 
+* Author: Alex Pérez Rubio
+* Date: 23-02-2021
+* Description: Activitat 7 PRACTICA UF2 M9
+*/
 public class NauEspaial extends javax.swing.JFrame {    
     
     public NauEspaial() {
