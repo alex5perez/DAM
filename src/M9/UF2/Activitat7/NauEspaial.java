@@ -169,6 +169,10 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         }
     }
     
+    public void matarNave(){
+        
+    }
+    
 }
 
 class Shot extends Thread {
