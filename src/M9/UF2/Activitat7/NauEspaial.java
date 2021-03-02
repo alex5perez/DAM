@@ -176,6 +176,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         int xShot;
         int yShot;
         double aprop;
+        int contadorfi=0;
         
         for(int i=0; i<nau.length; i++) {
             for (int j=0; j<nau.length; j++) {
@@ -185,12 +186,22 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
                     yNave = nau[i].getY();
                     yShot = shots[j].getY();
                     
-                    aprop = Math.sqrt(Math.pow((xNave, xShot), 2) + Math.pow((yNave - yShot), 2));
+                    aprop = Math.sqrt(Math.pow((yNave - yShot), 2) + Math.pow((xNave - xShot), 2));
                     
                     if(aprop < 20) {
                         shots[j].setSeguir(true);
                         nau[i].setSeguir(false);
+                        nau[i] = null;
+                        shots[j] = null;
                         
+                        for(int f=0; f<nau.length; f++){
+                            if(nau[f] == null){
+                                contadorfi++;
+                            }
+                            if(contadorfi == nau.length){
+                                System.out.println("Winner");
+                            }
+                        }
                         
                     }
                 }
