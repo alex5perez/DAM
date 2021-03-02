@@ -132,7 +132,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     public synchronized void novabala() {
         if (contador < 5) {
             if (shots[contador] == null) {
-                shots[contador] = new Shot(nauPropia.getX() + 22, nauPropia.getY() - 27, nauPropia.velocitat());
+                shots[contador] = new Shot(nauPropia.getX() + 90, nauPropia.getY() - 5, nauPropia.velocitat());
             }
         }
         
