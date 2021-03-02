@@ -171,10 +171,15 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     }
     
     public void matarNave(){
+        int xNave;
+        int yNave;
+        int xShot;
+        int yShot;
         for(int i=0; i<nau.length; i++) {
             for (int j=0; j<nau.length; j++) {
                 if(shots[j] != null && nau[i] != null) {
-                    
+                    xNave = nau[i].getX();
+                    xShot = shots[j].getX();
                 }
             }
         }
@@ -216,6 +221,10 @@ class Shot extends Thread {
     
     public int getY() {
         return this.y;
+    }
+    
+    public int getX(){
+        return this.x;
     }
     
     
