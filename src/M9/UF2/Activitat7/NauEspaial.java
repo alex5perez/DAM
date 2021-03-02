@@ -101,7 +101,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
             repaint();            
             }                   
         }
-
+    
     public synchronized void paintComponent(Graphics g) {
         super.paintComponent(g);
         for(int i=0; i<nau.length;++i) 
@@ -113,6 +113,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         try{
             matarNave();
         }catch (InterruptedException e){
+            e.printStackTrace();
         }
         */
         //for de la bala que la pinta i desapareix si surt
