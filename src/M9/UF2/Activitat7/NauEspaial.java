@@ -171,7 +171,13 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     }
     
     public void matarNave(){
-        
+        for(int i=0; i<nau.length; i++) {
+            for (int j=0; j<nau.length; j++) {
+                if(shots[j] != null && nau[i] != null) {
+                    
+                }
+            }
+        }
     }
     
 }
