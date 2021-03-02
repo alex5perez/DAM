@@ -83,7 +83,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
             String nomNau = Integer.toString(i);
             nau[i]= new Nau(nomNau,posX,posY,dX,dY,velocitat);
             }
-        
+        //posicio de la nostra nau
         nauPropia = new Nau("NauNostre", 350, 650, 0, 0, 100);
         
         Thread n = new Thread(this);
@@ -110,6 +110,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
             }
         nauPropia.pinta2(g);
         
+        //for de la bala que la pinta i desapareix si surt
         for(int i=0; i<shots.length; i++) {
             if (shots[i] != null) {
                 Y = shots[i].getY();
@@ -124,7 +125,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         }
     
     
-    //contador per el la bala, que nomes surtin 5
+    //contador per la bala, que nomes surtin 5
     public static void setContador(int c) {
         contador = c;
     }
@@ -175,6 +176,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     
 }
 
+//clase de la bala
 class Shot extends Thread {
     ThreadGroup shots = new ThreadGroup("");
     private int x,y;
