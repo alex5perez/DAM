@@ -124,11 +124,12 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         }
     
     
-    
+    //contador per el la bala, que nomes surtin 5
     public static void setContador(int c) {
         contador = c;
     }
     
+    //localitzacio de la bala
     public synchronized void novabala() {
         if (contador < 5) {
             if (shots[contador] == null) {
