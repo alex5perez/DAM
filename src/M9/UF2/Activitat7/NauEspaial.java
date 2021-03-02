@@ -58,7 +58,7 @@ public class NauEspaial extends javax.swing.JFrame {
         f.setSize(880, 860);
         f.setVisible(true);
         }
-    }
+}
 
 
 class PanelNau extends JPanel implements Runnable, KeyListener{
@@ -69,6 +69,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     Shot[] shots = new Shot[5];
     Shot shot;
     private static int contador = 0;
+    int Y;
     
     public PanelNau(){        
         nau = new Nau[numNaus];
@@ -103,9 +104,26 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
 
     public synchronized void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for(int i=0; i<nau.length;++i) nau[i].pinta(g);
+        for(int i=0; i<nau.length;++i) 
+            if (nau[i] != null) {
+                nau[i].pinta(g);
+            }
         nauPropia.pinta2(g);
+        
+        for(int i=0; i<shots.length; i++) {
+            if (shots[i] != null) {
+                Y = shots[i].getY();
+                if (Y <= 0) {
+                    shots[i].setSeguir(false);
+                    shots[i]=null;
+                }else{
+                    shots[i].pintaShot(g);
+                }
+            }
         }
+        }
+    
+    
     
     public static void setContador(int c) {
         contador = c;
@@ -158,6 +176,7 @@ class Shot extends Thread {
     private int v;
     private int i = 0;
     private Image image;
+    private boolean seguir = true;
     
     public Shot(int x, int y, int v) {
         this.x=x;
@@ -176,6 +195,14 @@ class Shot extends Thread {
             try { Thread.sleep(this.v); } catch (Exception e) {}
             moure();
             }
+    }
+    
+    public void setSeguir(boolean s){
+        this.seguir = s;
+    }
+    
+    public int getY() {
+        return this.y;
     }
     
     
@@ -274,4 +301,4 @@ class Nau extends Thread {
     public void parar(){
         this.dsx = 0;
     }
-    }
+}
