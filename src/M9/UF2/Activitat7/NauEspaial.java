@@ -109,12 +109,12 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
                 nau[i].pinta(g);
             }
         nauPropia.pinta2(g);
-        
+        /*
         try{
             matarNave();
         }catch (InterruptedException e){
         }
-        
+        */
         //for de la bala que la pinta i desapareix si surt
         for(int i=0; i<shots.length; i++) {
             if (shots[i] != null) {
@@ -127,7 +127,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
                 }
             }
         }
-        }
+    }
     
     
     //contador per la bala, que nomes surtin 5
