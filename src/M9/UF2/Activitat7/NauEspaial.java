@@ -180,6 +180,8 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
                 if(shots[j] != null && nau[i] != null) {
                     xNave = nau[i].getX();
                     xShot = shots[j].getX();
+                    yNave = nau[i].getY();
+                    yShot = shots[j].getY();
                 }
             }
         }
