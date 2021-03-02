@@ -175,6 +175,8 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         int yNave;
         int xShot;
         int yShot;
+        double aprop;
+        
         for(int i=0; i<nau.length; i++) {
             for (int j=0; j<nau.length; j++) {
                 if(shots[j] != null && nau[i] != null) {
@@ -182,6 +184,15 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
                     xShot = shots[j].getX();
                     yNave = nau[i].getY();
                     yShot = shots[j].getY();
+                    
+                    aprop = Math.sqrt(Math.pow((xNave, xShot), 2) + Math.pow((yNave - yShot), 2));
+                    
+                    if(aprop < 20) {
+                        shots[j].setSeguir(true);
+                        nau[i].setSeguir(false);
+                        
+                        
+                    }
                 }
             }
         }
@@ -253,7 +264,7 @@ class Nau extends Thread {
     private int dsx,dsy,v;
     private int tx = 10;
     private int ty = 10;
-    
+    private boolean seguir = true;
     
 
     private Image image;
@@ -268,6 +279,7 @@ class Nau extends Thread {
         this.dsy=dsy;
         this.v=v;
         
+        
             image = new ImageIcon(Nau.class.getResource("nauenemiga.png")).getImage();
             image2 = new ImageIcon(Nau.class.getResource("nau.png")).getImage();
         
@@ -275,6 +287,9 @@ class Nau extends Thread {
         t.start();
         }
     
+    public void setSeguir(boolean s){
+        this.seguir = s;
+    }
     public int velocitat (){
         return v;
         }
