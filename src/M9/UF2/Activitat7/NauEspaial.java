@@ -110,6 +110,11 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
             }
         nauPropia.pinta2(g);
         
+        try{
+            matarNave();
+        }catch (InterruptedException e){
+        }
+        
         //for de la bala que la pinta i desapareix si surt
         for(int i=0; i<shots.length; i++) {
             if (shots[i] != null) {
@@ -170,7 +175,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         }
     }
     
-    public void matarNave(){
+    public void matarNave() throws InterruptedException{
         int xNave;
         int yNave;
         int xShot;
@@ -200,6 +205,8 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
                             }
                             if(contadorfi == nau.length){
                                 System.out.println("Winner");
+                                Thread.sleep(2000);
+                                System.exit(0);
                             }
                         }
                         
