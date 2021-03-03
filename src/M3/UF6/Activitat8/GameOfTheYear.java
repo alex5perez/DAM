@@ -142,7 +142,11 @@ public class GameOfTheYear extends javax.swing.JFrame {
     }
     
     private void reiniciataula(){
-        
+        for (int i=0; i<4; i++){
+            for (int j=0; j<4; j++){
+                jTaula.setValueAt("?", i, j);
+            }
+        }
     }
     /**
      * @param args the command line arguments
