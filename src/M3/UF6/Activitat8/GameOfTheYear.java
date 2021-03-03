@@ -5,12 +5,15 @@
  */
 package M3.UF6.Activitat8;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alexp
  */
 public class GameOfTheYear extends javax.swing.JFrame {
-
+    
+    int contador = 0;
     /**
      * Creates new form GameOfTheYear
      */
@@ -61,6 +64,11 @@ public class GameOfTheYear extends javax.swing.JFrame {
         });
 
         jButtonInici.setText("Començar");
+        jButtonInici.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Punts:");
 
@@ -116,8 +124,18 @@ public class GameOfTheYear extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortirActionPerformed
+        JOptionPane.showConfirmDialog(null, "Has fet " + contador, "Window", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
         System.exit(0);
     }//GEN-LAST:event_jButtonSortirActionPerformed
+
+    private void jButtonIniciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciActionPerformed
+        if(jButtonInici.getText().equalsIgnoreCase("Començar")){
+            jButtonInici.setText("Reinicia pantalla");
+        }else{
+            jButtonInici.setText("Començar");
+        }
+            
+    }//GEN-LAST:event_jButtonIniciActionPerformed
 
     /**
      * @param args the command line arguments
