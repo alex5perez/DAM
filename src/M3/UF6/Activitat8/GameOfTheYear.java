@@ -5,6 +5,7 @@
  */
 package M3.UF6.Activitat8;
 
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -140,7 +141,12 @@ public class GameOfTheYear extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonIniciActionPerformed
     
     private void reiniciaGame(){
-        
+        Random random = new Random();
+        for (int i=0; i<4; i++){
+            for (int j=0; j<4; j++){
+                
+            }
+        }
     }
     
     private void reiniciataula(){
