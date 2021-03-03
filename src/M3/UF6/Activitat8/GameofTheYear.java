@@ -61,7 +61,7 @@ public class GameofTheYear extends javax.swing.JFrame {
             }
         });
 
-        jButtonReinicia.setText("Reinicia Pantalla");
+        jButtonReinicia.setText("Començar");
         jButtonReinicia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReiniciaActionPerformed(evt);
@@ -137,12 +137,18 @@ public class GameofTheYear extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSortirActionPerformed
 
     private void jButtonReiniciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReiniciaActionPerformed
-        // TODO add your handling code here:
+        if(jButtonReinicia.getText().equalsIgnoreCase("Començar")){
+            jButtonReinicia.setText("Reinicia pantalla");
+        }else{
+            jButtonReinicia.setText("Començar");
+        
+    
     }//GEN-LAST:event_jButtonReiniciaActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
