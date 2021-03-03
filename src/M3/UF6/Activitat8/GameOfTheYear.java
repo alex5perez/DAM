@@ -142,9 +142,14 @@ public class GameOfTheYear extends javax.swing.JFrame {
     
     private void reiniciaGame(){
         Random random = new Random();
+        int rdm;
+        
         for (int i=0; i<4; i++){
             for (int j=0; j<4; j++){
-                
+                rdm = random.nextInt(3);
+                if(rdm == 0){
+                    
+                }
             }
         }
     }
