@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 public class GameOfTheYear extends javax.swing.JFrame {
     
     int contador = 0;
+    String stringtaula[][] = new String[4][4];
+    int fi, per2;
     /**
      * Creates new form GameOfTheYear
      */
@@ -56,6 +58,8 @@ public class GameOfTheYear extends javax.swing.JFrame {
         jTaula.setPreferredSize(new java.awt.Dimension(300, 300));
         jTaula.setRowHeight(70);
         jScrollPane1.setViewportView(jTaula);
+
+        jTextFieldPunts.setEditable(false);
 
         jButtonSortir.setText("Sortir");
         jButtonSortir.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +156,23 @@ public class GameOfTheYear extends javax.swing.JFrame {
             for (int j=0; j<4; j++){
                 rdm = random.nextInt(3);
                 if(rdm == 0){
-                    
+                    //caselles am 0
+                   stringtaula[i][j] = "0"; 
+                }else if(rdm == 1){
+                    //caselles amb X
+                    if (fi != 2) {
+                        stringtaula[i][j] = "X";
+                        fi++;
+                    }else{
+                        stringtaula[i][j] = "0";
+                    }
+                    }else{
+                    //caselles amb W
+                    if(per2 != 3){
+                        stringtaula[i][j] = "W";
+                    }else{
+                        stringtaula[i][j] = "0";
+                    }
                 }
             }
         }
