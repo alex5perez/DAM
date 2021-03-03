@@ -81,6 +81,11 @@ public class GameofTheYear extends javax.swing.JFrame {
                 "", "", "", ""
             }
         ));
+        jTaula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTaulaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTaula);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -144,11 +149,15 @@ public class GameofTheYear extends javax.swing.JFrame {
         
     
     }//GEN-LAST:event_jButtonReiniciaActionPerformed
+    }
+    private void jTaulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTaulaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTaulaMouseClicked
 
     /**
      * @param args the command line arguments
      */
-    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
