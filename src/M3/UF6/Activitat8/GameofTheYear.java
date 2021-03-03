@@ -72,10 +72,10 @@ public class GameofTheYear extends javax.swing.JFrame {
 
         jTaula.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"?", "?", "?", "?"},
-                {"?", "?", "?", "?"},
-                {"?", "?", "?", "?"},
-                {"?", "?", "?", "?"}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
                 "", "", "", ""
@@ -146,6 +146,7 @@ public class GameofTheYear extends javax.swing.JFrame {
             jButtonReinicia.setText("Reinicia pantalla");
         }else{
             jButtonReinicia.setText("Començar");
+            reiniciagame();
         
     
     }//GEN-LAST:event_jButtonReiniciaActionPerformed
@@ -153,7 +154,14 @@ public class GameofTheYear extends javax.swing.JFrame {
     private void jTaulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTaulaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTaulaMouseClicked
-
+    
+    private void reiniciagame(){
+        for (int i=0; i<4; i++){
+            for (int j=0; j<4; j++){
+                jTaula.setValueAt("?", i,j);
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */
