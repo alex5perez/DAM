@@ -5,12 +5,14 @@
  */
 package M3.UF6.Activitat8;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alexp
  */
 public class GameofTheYear extends javax.swing.JFrame {
-
+    int contador = 0;
     /**
      * Creates new form GameofTheYear
      */
@@ -83,7 +85,6 @@ public class GameofTheYear extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("A");
 
         jLabelRecord.setText("Record:");
 
@@ -130,6 +131,8 @@ public class GameofTheYear extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortirActionPerformed
+
+        JOptionPane.showConfirmDialog(null, "Has fet " + contador , "Window", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
         System.exit(0);
     }//GEN-LAST:event_jButtonSortirActionPerformed
 
