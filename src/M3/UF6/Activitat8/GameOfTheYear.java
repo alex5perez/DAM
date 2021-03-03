@@ -124,11 +124,13 @@ public class GameOfTheYear extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Boto per tancar el joc i veure quans punts has conseguit
     private void jButtonSortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortirActionPerformed
         JOptionPane.showConfirmDialog(null, "Has fet " + contador, "Window", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
         System.exit(0);
     }//GEN-LAST:event_jButtonSortirActionPerformed
 
+    //Boto per començar i reiniciar el joc
     private void jButtonIniciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciActionPerformed
         if(jButtonInici.getText().equalsIgnoreCase("Començar")){
             reiniciataula();
@@ -139,7 +141,7 @@ public class GameOfTheYear extends javax.swing.JFrame {
         }
                 
     }//GEN-LAST:event_jButtonIniciActionPerformed
-    
+    //Omple la taula amb X W 0 per que funcioni el joc
     private void reiniciaGame(){
         Random random = new Random();
         int rdm;
@@ -153,7 +155,7 @@ public class GameOfTheYear extends javax.swing.JFrame {
             }
         }
     }
-    
+    //Omple la taula amb ?
     private void reiniciataula(){
         for (int i=0; i<4; i++){
             for (int j=0; j<4; j++){
