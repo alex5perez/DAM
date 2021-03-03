@@ -152,9 +152,10 @@ public class GameOfTheYear extends javax.swing.JFrame {
         }
                 
     }//GEN-LAST:event_jButtonIniciActionPerformed
-
+    
+    //Clicar a la taula
     private void jTaulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTaulaMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTaulaMouseClicked
     //Omple la taula amb X W 0 per que funcioni el joc
     private void reiniciaGame(){
