@@ -134,9 +134,16 @@ public class GameOfTheYear extends javax.swing.JFrame {
         }else{
             jButtonInici.setText("Començar");
         }
-            
+                
     }//GEN-LAST:event_jButtonIniciActionPerformed
-
+    
+    private void reiniciaGame(){
+        
+    }
+    
+    private void reiniciataula(){
+        
+    }
     /**
      * @param args the command line arguments
      */
