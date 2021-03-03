@@ -130,9 +130,11 @@ public class GameOfTheYear extends javax.swing.JFrame {
 
     private void jButtonIniciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciActionPerformed
         if(jButtonInici.getText().equalsIgnoreCase("Començar")){
+            reiniciataula();
             jButtonInici.setText("Reinicia pantalla");
         }else{
             jButtonInici.setText("Començar");
+            reiniciataula();
         }
                 
     }//GEN-LAST:event_jButtonIniciActionPerformed
