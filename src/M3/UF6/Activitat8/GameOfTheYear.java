@@ -57,6 +57,11 @@ public class GameOfTheYear extends javax.swing.JFrame {
         ));
         jTaula.setPreferredSize(new java.awt.Dimension(300, 300));
         jTaula.setRowHeight(70);
+        jTaula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTaulaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTaula);
 
         jTextFieldPunts.setEditable(false);
@@ -147,6 +152,10 @@ public class GameOfTheYear extends javax.swing.JFrame {
         }
                 
     }//GEN-LAST:event_jButtonIniciActionPerformed
+
+    private void jTaulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTaulaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTaulaMouseClicked
     //Omple la taula amb X W 0 per que funcioni el joc
     private void reiniciaGame(){
         Random random = new Random();
