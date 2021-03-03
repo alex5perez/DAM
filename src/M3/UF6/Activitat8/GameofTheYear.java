@@ -147,6 +147,7 @@ public class GameofTheYear extends javax.swing.JFrame {
             jButtonReinicia.setText("Reinicia pantalla");
         }else{
             jButtonReinicia.setText("Començar");
+            reiniciacaselles();
             reiniciagame();
         
     
