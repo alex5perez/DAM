@@ -5,6 +5,7 @@
  */
 package M3.UF6.Activitat8;
 
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -154,13 +155,22 @@ public class GameofTheYear extends javax.swing.JFrame {
     private void jTaulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTaulaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTaulaMouseClicked
-    
+    //Quan li donem a reiniciar, surten una altra vegada els ?
     private void reiniciagame(){
         for (int i=0; i<4; i++){
             for (int j=0; j<4; j++){
                 jTaula.setValueAt("?", i,j);
             }
         }
+    }
+    
+    private void reiniciacaselles(){
+        Random random = new Random();
+            for (int i=0; i<4; i++) {
+                for (int j=0; j<4; j++){
+                    
+                }
+            }
     }
     /**
      * @param args the command line arguments
