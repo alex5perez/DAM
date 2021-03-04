@@ -135,7 +135,7 @@ public class GameOfTheYear extends javax.swing.JFrame {
 
     //Boto per tancar el joc i veure quans punts has conseguit
     private void jButtonSortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortirActionPerformed
-        JOptionPane.showConfirmDialog(null, "Has fet " + contador, "Window", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showConfirmDialog(null, "Has fet " + contador + "punts", "Window", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
         System.exit(0);
     }//GEN-LAST:event_jButtonSortirActionPerformed
 
@@ -155,7 +155,15 @@ public class GameOfTheYear extends javax.swing.JFrame {
     
     //Clicar a la taula
     private void jTaulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTaulaMouseClicked
-        
+        if(jTaula.isEnabled()){
+            int fila = filaClicada(), columna = columnaClicada();
+            if(jTaula.getValueAt(fila,columna).equals("?")){
+                jTaula.setValueAt(stringtaula[fila][columna], fila, columna);
+                if(stringtaula[fila][columna].equals("X")){
+                    JOptionPane.showConfirmDialog(null, "Has fet " + contador + "punts", "The New Game of the Year", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
+                }
+            }
+        }
     }//GEN-LAST:event_jTaulaMouseClicked
     //Omple la taula amb X W 0 per que funcioni el joc
     private void reiniciaGame(){
