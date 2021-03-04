@@ -149,7 +149,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
     public synchronized void novabala() {
         if (contador < 5) {
             if (shots[contador] == null) {
-                shots[contador] = new Shot(nauPropia.getX() + 95, nauPropia.getY() - -30, nauPropia.velocitat());
+                shots[contador] = new Shot(nauPropia.getX() + 45, nauPropia.getY() - -20, nauPropia.velocitat());
             }
         }
         
@@ -203,7 +203,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
                     
                     aprop = Math.sqrt(Math.pow((yNave - yShot), 2) + Math.pow((xNave - xShot), 2));
                     
-                    if(aprop < 20) {
+                    if(aprop < 35) {
                         shots[j].setSeguir(true);
                         nau[i].setSeguir(false);
                         nau[i] = null;
