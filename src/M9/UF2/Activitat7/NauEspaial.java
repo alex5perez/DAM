@@ -21,6 +21,8 @@ import java.awt.event.*;
 */
 public class NauEspaial extends javax.swing.JFrame {    
     
+    ThreadGroup shots = new ThreadGroup("");
+    
     public NauEspaial() {
         initComponents();
         }
@@ -97,7 +99,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         System.out.println("Inici fil repintar");
         while(true) {
             try { Thread.sleep(100);} catch(Exception e) {} // espero 0,1 segons
-            System.out.println("Repintant");
+            //System.out.println("Repintant");
             repaint();            
             }                   
         }
@@ -109,13 +111,13 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
                 nau[i].pinta(g);
             }
         nauPropia.pinta2(g);
-        /*
+        
         try{
             matarNave();
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        */
+        
         //for de la bala que la pinta i desapareix si surt
         for(int i=0; i<shots.length; i++) {
             if (shots[i] != null) {
@@ -185,7 +187,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         int contadorfi=0;
         
         for(int i=0; i<nau.length; i++) {
-            for (int j=0; j<nau.length; j++) {
+            for (int j=0; j<shots.length; j++) {
                 if(shots[j] != null && nau[i] != null) {
                     xNave = nau[i].getX();
                     xShot = shots[j].getX();
@@ -235,12 +237,12 @@ class Shot extends Thread {
         
         image = new ImageIcon(Nau.class.getResource("bala.png")).getImage();
         
-        Thread t = new Thread(this);
+        Thread t = new Thread(shots, this);
         t.start();
     }
     
     public void run() {
-        while (true) {
+        while (seguir) {
             //System.out.println("Movent nau numero " + this.nomNau);
             try { Thread.sleep(this.v); } catch (Exception e) {}
             moure();
@@ -278,6 +280,7 @@ class Shot extends Thread {
 }
 
 class Nau extends Thread {
+    ThreadGroup naus = new ThreadGroup("");
     private String nomNau;
     private int x,y;
     private int dsx,dsy,v;
@@ -302,7 +305,7 @@ class Nau extends Thread {
             image = new ImageIcon(Nau.class.getResource("nauenemiga.png")).getImage();
             image2 = new ImageIcon(Nau.class.getResource("nau.png")).getImage();
         
-        Thread t = new Thread(this);
+        Thread t = new Thread(naus, this);
         t.start();
         }
     
@@ -341,8 +344,8 @@ class Nau extends Thread {
     
 
     public void run() {
-        while (true) {
-            System.out.println("Movent nau numero " + this.nomNau);
+        while (seguir) {
+            //System.out.println("Movent nau numero " + this.nomNau);
             try { Thread.sleep(this.v); } catch (Exception e) {}
             moure();
             }
