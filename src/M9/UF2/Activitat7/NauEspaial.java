@@ -132,6 +132,13 @@ class PanelNau extends JPanel implements Runnable, KeyListener{
         }
     }
     
+    public static void contadorResta(){
+        contador--;
+    }
+    
+    public static int getContador(){
+        return contador;
+    }
     
     //contador per la bala, que nomes surtin 5
     public static void setContador(int c) {
