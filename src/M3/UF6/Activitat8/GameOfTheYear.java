@@ -195,6 +195,14 @@ public class GameOfTheYear extends javax.swing.JFrame {
             }
         }
     }
+    
+    public int filaClicada(){
+        return jTaula.getSelectedColumn();
+    }
+    
+    public int columnaClicada(){
+        return jTaula.getSelectedRow();
+    }
     /**
      * @param args the command line arguments
      */
