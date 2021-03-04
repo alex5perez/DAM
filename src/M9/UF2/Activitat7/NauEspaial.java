@@ -309,7 +309,7 @@ class Nau extends Thread {
         this.v=v;
         
         
-            image = new ImageIcon(Nau.class.getResource("nauenemiga.png")).getImage();
+            image = new ImageIcon(Nau.class.getResource("nauenemiga2.png")).getImage();
             image2 = new ImageIcon(Nau.class.getResource("nau.png")).getImage();
         
         Thread t = new Thread(naus, this);
