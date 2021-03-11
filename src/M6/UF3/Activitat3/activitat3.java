@@ -8,6 +8,7 @@ package M6.UF3.Activitat3;
 import org.xmldb.api.*;
 import org.xmldb.api.base.*;
 import org.xmldb.api.modules.*;
+import java.io.IOException;
 
 /**
  *
@@ -42,6 +43,11 @@ public class activitat3 {
         }
         System.out.println("Escriu un departament: ");
         String s = null;
+        try  {
+            
+        }catch (IOException e){
+            
+        }
         XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
         
         ResourceSet result = servicio.query ("for $em in /EMPLEADOS/EMP_ROW[DEPT_NO=10] return $em");
