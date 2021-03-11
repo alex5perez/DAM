@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author alexp
+ * @author alexp & hector
  */
 public class TestInetAddress {
 	
