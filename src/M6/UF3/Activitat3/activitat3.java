@@ -5,10 +5,12 @@
  */
 package M6.UF3.Activitat3;
 
+import java.io.BufferedReader;
 import org.xmldb.api.*;
 import org.xmldb.api.base.*;
 import org.xmldb.api.modules.*;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -20,7 +22,7 @@ public class activitat3 {
         
         Collection col = null; // Colección
         
-        String URI="xmldb:exist://localhost:8080/exist/xmlrpc/db/Pruebas"; //URI colección
+        String URI="xmldb:exist://localhost:8080/exist/xmlrpc/db"; //URI colección
         
         String usu="admin"; //Usuario
         
@@ -43,11 +45,13 @@ public class activitat3 {
         }
         System.out.println("Escriu un departament: ");
         String s = null;
-        try  {
-            
-        }catch (IOException e){
-            
-        }
+        //try  {
+            //BufferedReader in = new BufferedReader (new InputStreamReader(System.in));
+                    //s = in.readLinr();
+        //}catch (IOException e){
+            //System.out.println("Error en llegir");
+            //e.printStackTrace();
+        //}
         XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
         
         ResourceSet result = servicio.query ("for $em in /EMPLEADOS/EMP_ROW[DEPT_NO=10] return $em");
@@ -61,5 +65,6 @@ public class activitat3 {
             System.out.println((String) r.getContent());
         }
         col.close(); //borramos
+        
     }// FIN verempleados10
 }
