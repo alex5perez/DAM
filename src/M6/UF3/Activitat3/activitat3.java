@@ -53,13 +53,14 @@ public class activitat3 {
             //e.printStackTrace();
         //}
         XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
-        
-        ResourceSet result = servicio.query ("for $em in /EMPLEADOS/EMP_ROW[DEPT_NO=10] return $em");
+         
+        ResourceSet result = servicio.query ("for $em in /departamentos/DEP_ROW[DEPT_NO=20] return $em"); 
         // recorrer los datos del recurso.
         ResourceIterator i;
         i = result.getIterator();
         if (!i.hasMoreResources())
             System.out.println(" LA CONSULTA NO DEVUELVE NADA."); 
+        
         while (i.hasMoreResources()) {
             Resource r = i.nextResource();
             System.out.println((String) r.getContent());
