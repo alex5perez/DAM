@@ -7,7 +7,7 @@ package M6.UF3.Activitat3;
 
 import org.xmldb.api.*;
 import org.xmldb.api.base.*;
-import org.xmldb.api.modules.XPathQueryService;
+import org.xmldb.api.modules.*;
 
 /**
  *
@@ -15,11 +15,12 @@ import org.xmldb.api.modules.XPathQueryService;
  */
 public class activitat3 {
     public static void main (String[] args) throws XMLDBException {
-        String driver = "org.exist.xmldb.Databaselmpl"; //Driver para eXist
+        String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
         
         Collection col = null; // Colección
         
         String URI="xmldb:exist://localhost:8080/exist/xmlrpc/db/Pruebas"; //URI colección
+        
         String usu="admin"; //Usuario
         
         String usuPwd="admin"; //Clave
