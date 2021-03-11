@@ -160,7 +160,7 @@ public class GameOfTheYear extends javax.swing.JFrame {
             if(jTaula.getValueAt(fila,columna).equals("?")){
                 jTaula.setValueAt(stringtaula[fila][columna], fila, columna);
                 if(stringtaula[fila][columna].equals("X")){
-                    JOptionPane.showConfirmDialog(null, "Has fet " + contador + "punts", "The New Game of the Year", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showConfirmDialog(null, "Has fet" + contador + "punts", "The New Game of the Year", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
                 }
             }
         }
