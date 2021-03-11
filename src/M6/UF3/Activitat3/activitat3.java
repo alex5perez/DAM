@@ -37,8 +37,10 @@ public class activitat3 {
         }
         
         col = DatabaseManager.getCollection(URI, usu, usuPwd);
-        if(col == null)
+        if(col == null) {
             System.out.println(" *** LA COLECCION NO EXISTE. ***");
+        }
+        System.out.println("Escriu un departament: ");
         
         XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
         
