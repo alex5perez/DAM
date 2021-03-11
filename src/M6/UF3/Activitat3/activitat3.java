@@ -41,7 +41,7 @@ public class activitat3 {
             System.out.println(" *** LA COLECCION NO EXISTE. ***");
         }
         System.out.println("Escriu un departament: ");
-        
+        String s = null;
         XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
         
         ResourceSet result = servicio.query ("for $em in /EMPLEADOS/EMP_ROW[DEPT_NO=10] return $em");
