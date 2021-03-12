@@ -76,7 +76,7 @@ public class activitat3 {
         private static void mostrarEmpleats(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
             System.out.println("Escriu un departament");
             String departament = teclado.next();
-            String xquerySent = "(for $num in /departamentos/DEP_ROW[DNOMBRE='"+departament+"']/DEPT_NO"+" let $emp := /EMPLEADOS/EMP_ROW[DEPT_NO=$num] return $emp)"; 
+            String xquerySent = "for $num in /departamentos/DEP_ROW[DNOMBRE='"+departament+"']/DEPT_NO let $emp := /EMPLEADOS/EMP_ROW[DEPT_NO=$num] return $emp"; 
             ResourceSet result = servicio.query(xquerySent);
              // recorrer los datos del recurso.
             ResourceIterator i;
@@ -104,7 +104,10 @@ public class activitat3 {
         }
         
         private static void esborradep(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
-            
+            System.out.println("Num del departament per esborrar");
+            int numDepartament = teclado.nextInt();
+            ResourceSet result = servicio.query("");
+            System.out.println("Esborrat" + numDepartament);
         }
         
         private static void modificaDep(Scanner teclado) throws XMLDBException{
