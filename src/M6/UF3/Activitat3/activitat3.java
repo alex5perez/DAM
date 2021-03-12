@@ -11,6 +11,7 @@ import org.xmldb.api.base.*;
 import org.xmldb.api.modules.*;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  *
@@ -28,6 +29,10 @@ public class activitat3 {
         
         String usuPwd="admin"; //Clave
         
+        Scanner teclado = new Scanner(System.in);
+        boolean menu = true;
+        int seleccioMenu = 0;
+        
         try {
             Class cl = Class.forName(driver); //Cargar del driver
    
@@ -43,29 +48,66 @@ public class activitat3 {
         if(col == null) {
             System.out.println(" *** LA COLECCION NO EXISTE. ***");
         }
-        System.out.println("Escriu un departament: ");
-        String s = null;
-        //try  {
-            //BufferedReader in = new BufferedReader (new InputStreamReader(System.in));
-                    //s = in.readLinr();
-        //}catch (IOException e){
-            //System.out.println("Error en llegir");
-            //e.printStackTrace();
-        //}
         XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
-         
-        ResourceSet result = servicio.query ("for $em in /departamentos/DEP_ROW[DEPT_NO=20] return $em"); 
-        // recorrer los datos del recurso.
-        ResourceIterator i;
-        i = result.getIterator();
-        if (!i.hasMoreResources())
-            System.out.println(" LA CONSULTA NO DEVUELVE NADA."); 
         
-        while (i.hasMoreResources()) {
-            Resource r = i.nextResource();
-            System.out.println((String) r.getContent());
+        while(menu){
+            System.out.println("1.Mostrar empleats del departament");
+            System.out.println("2.Insertar un departament");
+            System.out.println("3.Esborrar un departament");
+            System.out.println("4.Modificar un departament");
+            seleccioMenu = teclado.nextInt();
+            
+            if(seleccioMenu == 1){
+                mostrarEmpleats(teclado,servicio);
+            }else if (seleccioMenu == 2){
+                insereixdep(teclado,servicio);
+            }else if (seleccioMenu == 3){
+                esborradep(teclado,servicio);
+            }else if (seleccioMenu == 4){
+               modificaDep(teclado);
+            }else{
+                System.out.println("Has sortit");
+                menu = false;
+            }
+        col.close();
         }
-        col.close(); //borramos
         
-    }// FIN verempleados10
+        private static void mostrarEmpleats(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
+            System.out.println("Escriu un departament");
+            String departament = teclado.next();
+            String xquerySent = "(for $num in /departamentos/DEP_ROW[DNOMBRE='"+departament+"']/DEPT_NO"+" let $emp := /EMPLEADOS/EMP_ROW[DEPT_NO=$num] return $emp)"; 
+            ResourceSet result = servicio.query(xquerySent);
+             // recorrer los datos del recurso.
+            ResourceIterator i;
+        
+            i = result.getIterator();
+                if (!i.hasMoreResources())
+                    System.out.println(" LA CONSULTA NO DEVUELVE NADA."); 
+
+                while (i.hasMoreResources()) {
+                    Resource r = i.nextResource();
+                    System.out.println((String) r.getContent());
+                }
+
+        }
+        
+        private static void insereixdep(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
+            System.out.println("Nom del departament");
+            String departament = teclado.next();
+            System.out.println("Numero del departament");
+            int numDepartament = teclado.nextInt();
+            System.out.println("Lloc del departament");
+        }
+        
+        private static void esborradep(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
+            
+        }
+        
+        private static void modificaDep(Scanner teclado) throws XMLDBException{
+            
+        }
+        
 }
+
+
+
