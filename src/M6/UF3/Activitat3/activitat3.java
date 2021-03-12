@@ -71,6 +71,7 @@ public class activitat3 {
             }
         col.close();
         }
+    }
         
         private static void mostrarEmpleats(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
             System.out.println("Escriu un departament");
@@ -97,6 +98,9 @@ public class activitat3 {
             System.out.println("Numero del departament");
             int numDepartament = teclado.nextInt();
             System.out.println("Lloc del departament");
+            String llocDepartament = teclado.next();
+            ResourceSet result = servicio.query("");
+            System.out.println("Departament inserit");
         }
         
         private static void esborradep(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
