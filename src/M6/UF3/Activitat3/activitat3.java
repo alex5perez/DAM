@@ -99,7 +99,8 @@ public class activitat3 {
             int numDepartament = teclado.nextInt();
             System.out.println("Lloc del departament");
             String llocDepartament = teclado.next();
-            ResourceSet result = servicio.query("");
+            ResourceSet result = servicio.query("update insert\n" +"<DEP_ROW><DEPT_NO>"+numDepartament+"</DEPT_NO>"+ "<DNOMBRE>"+departament+"</DNOMBRE>"
+                                                    + "<LOC>"+llocDepartament+"</LOC></DEP_ROW> into /departamentos");
             System.out.println("Departament inserit");
         }
         
@@ -111,7 +112,12 @@ public class activitat3 {
         }
         
         private static void modificaDep(Scanner teclado) throws XMLDBException{
-            
+            System.out.println("Num del departament per modificar");
+            int numDepartament = teclado.nextInt();
+            System.out.println("Num nou pel departament");
+            int numNouDep = teclado.nextInt();
+            System.out.println("Nom del departament");
+            String nomDepartament = teclado.nextLine();
         }
         
 }
