@@ -108,7 +108,7 @@ public class activitat3 {
             System.out.println("Num del departament per esborrar");
             int numDepartament = teclado.nextInt();
             ResourceSet result = servicio.query("update delete /departamentos/DEP_ROW[DEPT_NO="+numDepartament+"]");
-            System.out.println("Esborrat" + numDepartament);
+            System.out.println("Esborrat " + numDepartament);
         }
         
         private static void modificaDep(Scanner teclado) throws XMLDBException{
