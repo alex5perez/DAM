@@ -107,7 +107,7 @@ public class activitat3 {
         private static void esborradep(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
             System.out.println("Num del departament per esborrar");
             int numDepartament = teclado.nextInt();
-            ResourceSet result = servicio.query("");
+            ResourceSet result = servicio.query("update delete /departamentos/DEP_ROW[DEPT_NO="+numDepartament+"]");
             System.out.println("Esborrat" + numDepartament);
         }
         
