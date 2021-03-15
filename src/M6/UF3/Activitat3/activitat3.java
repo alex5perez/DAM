@@ -18,16 +18,17 @@ import java.util.Scanner;
  * @author alexp
  */
 public class activitat3 {
+        public static String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
+        
+        public static Collection col = null; // Colección
+        
+        public static String URI="xmldb:exist://localhost:8080/exist/xmlrpc/db"; //URI colección
+        
+        public static String usu="admin"; //Usuario
+        
+        public static String usuPwd="admin"; //Clave
     public static void main (String[] args) throws XMLDBException {
-        String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
         
-        Collection col = null; // Colección
-        
-        String URI="xmldb:exist://localhost:8080/exist/xmlrpc/db"; //URI colección
-        
-        String usu="admin"; //Usuario
-        
-        String usuPwd="admin"; //Clave
         
         Scanner teclado = new Scanner(System.in);
         boolean menu = true;
@@ -69,9 +70,11 @@ public class activitat3 {
                 System.out.println("Has sortit");
                 menu = false;
             }
-        col.close();
+        
         }
+        col.close();
     }
+    
         
         private static void mostrarEmpleats(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
             System.out.println("Escriu un departament");
@@ -126,7 +129,35 @@ public class activitat3 {
             consultar(query);
         }
         
+        private static void consultar(String query) throws XMLDBException{
+            try {
+            Class cl = Class.forName(driver); //Cargar del driver
+   
+            Database database = (Database) cl.newInstance(); //Instancia de la BD 
+            
+            DatabaseManager.registerDatabase(database); //Registro del driver
+        } catch (Exception e) {
+            System.out.println("Error al inicializar la BD eXist");
+             e.printStackTrace(); 
+        }
+        
+        col = DatabaseManager.getCollection(URI, usu, usuPwd);
+        if(col == null) 
+            System.out.println(" *** LA COLECCION NO EXISTE. ***");
+        XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+        ResourceSet result = servicio.query(query);
+        ResourceIterator i;
+        i = result.getIterator();
+        if(!i.hasMoreResources())
+            System.out.println("LA CONSULTA NO TORNA RES");
+        while(i.hasMoreResources()) {
+            Resource r = i.nextResource();
+            System.out.println((String)r.getContent());
+        
+        }
+        
+        col.close();
+    }
+        
 }
-
-
 
