@@ -51,6 +51,7 @@ public class activitat3 {
         }
         XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
         
+        //Menu
         while(menu){
             System.out.println("1.Mostrar empleats del departament");
             System.out.println("2.Insertar un departament");
@@ -75,7 +76,7 @@ public class activitat3 {
         col.close();
     }
     
-        
+        //MostrarEmpleats
         private static void mostrarEmpleats(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
             System.out.println("Escriu un departament");
             String departament = teclado.next();
@@ -95,6 +96,7 @@ public class activitat3 {
 
         }
         
+        //Insereix
         private static void insereixdep(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
             System.out.println("Nom del departament");
             String departament = teclado.next();
@@ -107,6 +109,7 @@ public class activitat3 {
             System.out.println("Departament inserit");
         }
         
+        //Esborra
         private static void esborradep(Scanner teclado,XPathQueryService servicio) throws XMLDBException{
             System.out.println("Num del departament per esborrar");
             int numDepartament = teclado.nextInt();
@@ -114,6 +117,7 @@ public class activitat3 {
             System.out.println("Esborrat " + numDepartament);
         }
         
+        //Modifica
         private static void modificaDep(Scanner teclado) throws XMLDBException{
             System.out.println("Num del departament per modificar");
             int numDepartament = teclado.nextInt();
@@ -129,6 +133,7 @@ public class activitat3 {
             consultar(query);
         }
         
+        //Consulta
         private static void consultar(String query) throws XMLDBException{
             try {
             Class cl = Class.forName(driver); //Cargar del driver
