@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author alexp
+ * @author alexp i hector
  */
 public class ExempeURL {
     
