@@ -31,6 +31,7 @@ public class ClientUDP3 {
 		InetAddress IPServidor = InetAddress.getLocalHost();
 		int port = 9800;
 		
+                //While per pantalla que missatge es vol transmetre al servidor.
                 while(clientSocket.getSoTimeout() <= 5000){
                     
                     //INTRODUIR DADES PEL TECLAT
@@ -46,6 +47,8 @@ public class ClientUDP3 {
                     //REBENT DATAGRAMA DEL SERVIDOR
                     DatagramPacket rebut = new DatagramPacket(rebuts, rebuts.length);
                     System.out.println("Esperant datagrama...");
+                    
+                    //Servidor no respongui passats 5 segons (setSoTimeout) el programa acabi.
                     clientSocket.setSoTimeout(5000);
                     
                     String majuscula = new String(rebut.getData());
