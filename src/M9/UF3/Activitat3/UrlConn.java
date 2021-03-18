@@ -54,7 +54,7 @@ public class UrlConn {
 			System.out.println("===============================================================");
 			System.out.println("Camps" + numCamps);
                         for (int i=1; i <= numCamps; i++) {
-                            System.out.println("getHeaderField(1)=> " + connexio.getHeaderField(1));
+                            System.out.println("getHeaderField("+i+")=> " + connexio.getHeaderField(i));
                         }
 			
 			System.out.println("===============================================================");
