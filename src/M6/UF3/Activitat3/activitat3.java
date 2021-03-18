@@ -124,9 +124,10 @@ public class activitat3 {
             System.out.println("Num nou pel departament");
             int numNouDep = teclado.nextInt();
             System.out.println("Nom del departament");
-            String nomDepartament = teclado.nextLine();
+            String nomDepartament = teclado.next();
+            
             System.out.println("Lloc del departament");
-            String llocDep = teclado.nextLine();
+            String llocDep = teclado.next();
             
             String query = "update replace /departamentos/DEP_ROW[DEPT_NO ="+ numDepartament +"] with <DEP_ROW><DEPT_NO>"
                                 + numNouDep + "</DEPT_NO>" + "<DNOMBRE>" + nomDepartament + "</DNOMBRE><LOC>" + llocDep + "</LOC></DEP_ROW>";
