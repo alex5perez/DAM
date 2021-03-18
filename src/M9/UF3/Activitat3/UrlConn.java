@@ -28,7 +28,7 @@ public class UrlConn {
 		
 		try {
 			String cadena;
-			URL url = new URL("http://insbaixcamp.org/index.php/2013-10-29-12-24-12/informacio-general-4");
+			URL url = new URL(urlLoc);
 			URLConnection connexio = url.openConnection();
 			
 			System.out.println("===============================================================");
@@ -52,9 +52,11 @@ public class UrlConn {
 			}
 			
 			System.out.println("===============================================================");
-			System.out.println("Camps 1 i 4 de Capçalera");
-			System.out.println("getHeaderField(1)=> " + connexio.getHeaderField(1));
-			System.out.println("getHeaderField(4)=> " + connexio.getHeaderField(4));
+			System.out.println("Camps" + numCamps);
+                        for (int i=1; i <= numCamps; i++) {
+                            System.out.println("getHeaderField(1)=> " + connexio.getHeaderField(1));
+                        }
+			
 			System.out.println("===============================================================");
 			
 			System.out.println("Contingut de [url.getFile()]: " + url.getFile());
