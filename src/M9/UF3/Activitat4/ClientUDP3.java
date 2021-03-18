@@ -50,7 +50,11 @@ public class ClientUDP3 {
                     
                     //Servidor no respongui passats 5 segons (setSoTimeout) el programa acabi.
                     clientSocket.setSoTimeout(5000);
-                    
+                    try{
+                        clientSocket.receive(rebut);
+                    }catch (Exception e){
+                        System.out.println("Més de 5 segons, error");
+                    }
                     String majuscula = new String(rebut.getData());
 
                     //ACONSEGUINT INFORMACIÓ DEL DATAGRAMA
