@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -44,7 +46,8 @@ public class ClientUDP3 {
                     //REBENT DATAGRAMA DEL SERVIDOR
                     DatagramPacket rebut = new DatagramPacket(rebuts, rebuts.length);
                     System.out.println("Esperant datagrama...");
-                    clientSocket.receive(rebut);
+                    clientSocket.setSoTimeout(5000);
+                    
                     String majuscula = new String(rebut.getData());
 
                     //ACONSEGUINT INFORMACIÓ DEL DATAGRAMA
