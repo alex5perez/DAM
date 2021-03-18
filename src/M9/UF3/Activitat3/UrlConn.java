@@ -22,6 +22,9 @@ import java.util.Map;
 public class UrlConn {
     @SuppressWarnings("rawtypes")
 	public static void main (String[] args) {
+            String urlLoc = args[0];
+            int numCamps = Integer.parseInt(args[1]);
+            String text = args[2];
 		
 		try {
 			String cadena;
