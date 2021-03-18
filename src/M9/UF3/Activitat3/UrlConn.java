@@ -28,6 +28,7 @@ public class UrlConn {
 		
 		try {
 			String cadena;
+                        //Url
 			URL url = new URL(urlLoc);
 			URLConnection connexio = url.openConnection();
 			
@@ -53,6 +54,7 @@ public class UrlConn {
 			
 			System.out.println("===============================================================");
 			System.out.println("Camps" + numCamps);
+                        //Numero Camps
                         for (int i=1; i <= numCamps; i++) {
                             System.out.println("getHeaderField("+i+")=> " + connexio.getHeaderField(i));
                         }
@@ -63,6 +65,7 @@ public class UrlConn {
 			BufferedReader pagina = new BufferedReader(new InputStreamReader(url.openStream()));
 			
 			while ((cadena = pagina.readLine()) != null) {
+                            //Text
                             if(cadena.contains(text.subSequence(0, text.length()-1))){
                                 System.out.println(cadena);
                             }
