@@ -63,8 +63,10 @@ public class UrlConn {
 			BufferedReader pagina = new BufferedReader(new InputStreamReader(url.openStream()));
 			
 			while ((cadena = pagina.readLine()) != null) {
+                            if(cadena.contains(text.subSequence(0, text.length()-1))){
+                                System.out.println(cadena);
+                            }
 				
-				System.out.println(cadena);
 			}
 			
 		}
