@@ -32,7 +32,7 @@ public class ServidorTCP4 {
                 System.out.println("Numero dels clients que vols? ");
                 numClients = teclat.nextInt();
                 
-                    //El Servidor aten maxim 3 clients
+                    //El Servidor agafa els clients que li posem per teclat
                     while ( clients < numClients) {
                         try {
                             System.out.println("Esperant connexió... ");
