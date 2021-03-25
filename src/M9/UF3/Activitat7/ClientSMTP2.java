@@ -25,13 +25,16 @@ public class ClientSMTP2 {
 	
 	public static void main (String[] args) throws NoSuchAlgorithmException, UnrecoverableKeyException, KeyStoreException, InvalidKeyException, InvalidKeySpecException {
 		Scanner teclat = new Scanner (System.in);
+                
 		//Es crea el client SMTP segur
 		AuthenticatingSMTPClient client = new AuthenticatingSMTPClient();
 		
 		//Dades d'usuari i del servidor
 		String server = "smtp.gmail.com";
-		String username = "profebaixcamp@gmail.com";
-		String contrasenya = "xxxxxxxxxxxxxx";
+                System.out.println("Introdueix el correu");
+		String username = teclat.next();
+                System.out.println("Introdueix pass");
+		String contrasenya = teclat.next();
 		int port = 587;
 		
 		try {
@@ -71,9 +74,13 @@ public class ClientSMTP2 {
 				if (client.auth(AuthenticatingSMTPClient.AUTH_METHOD.PLAIN, username, contrasenya)) {
 					
 					System.out.println("4 -"+client.getReplyString());
-					String desti1 = "pferre2@xtec.cat";
-					String asumpte = "Prova SMTPClient";
-					String missatge = "Hola. \nSalutacions. \nFent servir GMAIL. \nAdeu.";
+                                        
+                                        System.out.println("Desti: ");
+					String desti1 = teclat.next();
+                                        System.out.println("Assumpte: ");
+					String asumpte = teclat.next();
+                                        System.out.println("Missatge: ");
+					String missatge = teclat.next();
 					
 					//Es crea la capçalera
 					SimpleSMTPHeader capcalera = new SimpleSMTPHeader(username, desti1, asumpte);
