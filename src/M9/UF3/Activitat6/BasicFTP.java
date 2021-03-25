@@ -6,6 +6,7 @@
 package M9.UF3.Activitat6;
 
 import java.io.IOException;
+import java.util.Scanner;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 
@@ -15,15 +16,22 @@ import org.apache.commons.net.ftp.FTPFile;
  */
 public class BasicFTP {
     public static void main (String[] args) {
-		
+		Scanner teclat = new Scanner (System.in);
+                
 		//Servidor FTP
 		FTPClient client = new FTPClient();
-		String ServerFTP = "ftp.urv.es";
+		String ServerFTP;
+                System.out.println("ServerFTP a conectar? ");
+                ServerFTP = teclat.next();
 		System.out.println("Ens connectem al servidor: "+ServerFTP);
 		
 		//Usuari FTP
-		String usuari = "anonymous";
-		String contrasenya = "guest";
+		String usuari;
+                System.out.println("Introdueix Usuari: ");
+                usuari = teclat.next();
+		String contrasenya;
+                System.out.println("Introdueix Password: ");
+                contrasenya = teclat.next();
 		
 		try {
 			
