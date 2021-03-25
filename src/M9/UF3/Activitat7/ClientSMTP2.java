@@ -75,6 +75,7 @@ public class ClientSMTP2 {
 					
 					System.out.println("4 -"+client.getReplyString());
                                         
+                                        //Posem el missatge, el assumpte i on el enviem
                                         System.out.println("Desti: ");
 					String desti1 = teclat.next();
                                         System.out.println("Assumpte: ");
@@ -136,6 +137,7 @@ public class ClientSMTP2 {
 		} catch (IOException f) {f.printStackTrace(); }
 		
 		System.out.println("Final de l'enviament");
+                teclat.close();
 		System.exit(0);
 		
 	}
