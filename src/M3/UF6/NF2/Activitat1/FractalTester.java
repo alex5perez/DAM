@@ -23,7 +23,12 @@ public class FractalTester {
         
         while(costatGran >= 1){
             perimetreTotal += calculPerimetre(costatGran, quadrats);
+            
+            costatGran /= 2;
+            quadrats *= 4;
         }
+        
+        System.out.println("Costats Totals: " + perimetreTotal);
     }
         public static int calculPerimetre(int costatGran, int quadrats){
            return perimetre(costatGran) * quadrats;
