@@ -21,6 +21,7 @@ public class FractalTester {
         int quadrats = 1;
         int perimetreTotal = 0;
         
+        //Si el els Costats son mes de 1
         while(costatGran >= 1){
             perimetreTotal += calculPerimetre(costatGran, quadrats);
             
