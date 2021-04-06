@@ -22,6 +22,10 @@ public class ServidorFils implements Runnable {
     String cadena = "";
     Socket clientConnectat;
     static int clients = 0;
+
+    public ServidorFils(ServerSocket servidor, Socket clientConnectat) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
         public void run(){
             try {
