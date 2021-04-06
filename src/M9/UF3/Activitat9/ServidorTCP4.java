@@ -40,7 +40,7 @@ public class ServidorTCP4 {
                             Socket clientConnectat = servidor.accept();
                             clients++;
                             
-                            fil = new ServidorFils(servidor, )
+                            fil = new ServidorFils(servidor, clientConnectat);
                             clientConnectat.close();
                         }catch (SocketException e){
                             System.out.println("Error");
