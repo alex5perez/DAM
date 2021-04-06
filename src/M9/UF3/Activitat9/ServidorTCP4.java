@@ -23,11 +23,12 @@ public class ServidorTCP4 {
         
 		int numPort = 60000;
 		ServerSocket servidor = new ServerSocket(numPort);
-		String cadena = "";
                 
                 //Variable per comptar els clients
                 int clients = 0;
                 int numClients;
+                Thread thread;
+                ServidorFils fil;
                 
                 System.out.println("Numero dels clients que vols? ");
                 numClients = teclat.nextInt();
@@ -39,29 +40,7 @@ public class ServidorTCP4 {
                             Socket clientConnectat = servidor.accept();
                             clients++;
                             
-                            System.out.println("Client " + clients + " connectat... ");
-
-                            //FLUX DE SORTIDA AL CLIENT
-                            PrintWriter fsortida = new PrintWriter(clientConnectat.getOutputStream(), true);
-
-
-                            //FLUX D'ENTRADA DEL CLIENT
-                            BufferedReader fentrada = new BufferedReader(new InputStreamReader(clientConnectat.getInputStream()));
-                            
-                            //Missatge quan el client conecta amb el servidor
-                            fsortida.println("Connexió amb client: " + clients);
-                            while ((cadena = fentrada.readLine()) != null) {
-
-                                    fsortida.println(cadena);
-                                    System.out.println("Rebent: "+cadena);
-                                    if (cadena.equals("*")) break;
-
-                            }
-
-                            //TANCAR STREAMS I SOCKETS
-                            System.out.println("Tancant connexió... ");
-                            fentrada.close();
-                            fsortida.close();
+                            fil = new ServidorFils(servidor, )
                             clientConnectat.close();
                         }catch (SocketException e){
                             System.out.println("Error");
