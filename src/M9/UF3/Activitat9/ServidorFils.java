@@ -24,7 +24,8 @@ public class ServidorFils implements Runnable {
     static int clients = 0;
 
     public ServidorFils(ServerSocket servidor, Socket clientConnectat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.Servidor = servidor;
+        this.clientConnectat = clientConnectat;
     }
     
         public void run(){
