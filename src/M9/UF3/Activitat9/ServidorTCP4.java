@@ -6,6 +6,7 @@
 package M9.UF3.Activitat9;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -41,11 +42,14 @@ public class ServidorTCP4 {
                             clients++;
                             
                             fil = new ServidorFils(servidor, clientConnectat);
+                            thread = new Thread(fil);
+                            thread.start();
                             clientConnectat.close();
                         }catch (SocketException e){
-                            System.out.println("Error");
-		
-                        }
+                                System.out.println("Error");
+                        }catch (IOException s) {
+                                s.printStackTrace();
+                            }
                     }   
             servidor.close();
             teclat.close();
