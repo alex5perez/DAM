@@ -21,9 +21,11 @@ public class ClientTCP2 {
 		
 		String host = "localhost";
 		int port = 60000;//Port remot
-		Socket client = null;
+		Socket client;
                 
                     try {
+                        
+                    client = new Socket(host, port);
 
 
                     //FLUX fDE SORTIDA AL SERVIDOR
@@ -36,6 +38,10 @@ public class ClientTCP2 {
                     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
                     String cadena, eco = "";
+                    //El Client posa el seu nom o nick
+                    System.out.println("Introdueix el teu nom");
+                    cadena = in.readLine();
+                    fsortida.println(cadena);
                     System.out.println("Introdueix la cadena: ");
                     //Lectura teclat
                     cadena = in.readLine();
