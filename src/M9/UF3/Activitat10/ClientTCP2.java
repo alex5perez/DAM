@@ -24,7 +24,7 @@ public class ClientTCP2 {
 		Socket client;
                 
                     try {
-                        
+                    //Iniciem client 
                     client = new Socket(host, port);
 
 
