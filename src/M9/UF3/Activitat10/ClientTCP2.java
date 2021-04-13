@@ -37,12 +37,16 @@ public class ClientTCP2 {
                     //FLUX PER A ENTRADA ESTÀNDARD
                     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-                    String cadena, eco = "";
+                    String cadena = "";
                     //El Client posa el seu nom o nick
                     System.out.println("Introdueix el teu nom");
                     cadena = in.readLine();
                     fsortida.println(cadena);
-                    System.out.println("Introdueix la cadena: ");
+                    //Quan el client esta conectat es mostra aixo
+                    System.out.println("Que vols fer?");
+                    System.out.println("0 <== Per veure els usuaris del chat");
+                    System.out.println("1 <== Per enviar missatge a tots");
+                    System.out.println("2 <== Per enviar missatge privat");
                     //Lectura teclat
                     cadena = in.readLine();
 
@@ -50,9 +54,7 @@ public class ClientTCP2 {
 
                             //Enviament cadena al servidor
                             fsortida.println(cadena);
-                            //Rebuda cadena del servidor
-                            eco = fentrada.readLine();
-                            System.out.println("  =>ECO: "+eco);
+                            
                             //Lectura del teclat
                             cadena = in.readLine();
 
