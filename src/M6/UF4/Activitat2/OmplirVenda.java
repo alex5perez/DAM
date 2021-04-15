@@ -19,6 +19,7 @@ import org.neodatis.odb.impl.core.query.values.ValuesCriteriaQuery;
 import ElsMeusBeans.Producte;
 import ElsMeusBeans.Comanda;
 import ElsMeusBeans.Venda;
+import java.util.Scanner;
 
 /**
  *
@@ -26,9 +27,14 @@ import ElsMeusBeans.Venda;
  */
 public class OmplirVenda {
     public static void main (String[] args ) {
+        Scanner teclat = new Scanner (System.in);
         //Dades d'entrada per a la venda
-        int idproducte = 2;//idproducte
-        int quantitat = 4;//quantitat
+        
+        System.out.println("Id del producte?");
+        int idproducte = teclat.nextInt();
+        System.out.println("Quina quantitat vols?");
+        int quantitat = teclat.nextInt();
+        
         
          //Obrir la base de dades
         ODB odb = ODBFactory.open("Producte_com.BD");
