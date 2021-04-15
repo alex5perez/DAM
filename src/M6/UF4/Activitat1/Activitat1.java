@@ -26,6 +26,8 @@ public class Activitat1 {
             new Producte(10, "RAM 16GB X2", 10, 3, 50),
                                                     };
         
+        for (int i=0; i<productes.length; i++){
+            
         
         Comanda comanda = new Comanda();
         
@@ -33,8 +35,9 @@ public class Activitat1 {
         //Es canvia l'estoc actual, se li dona valor 2
         productes[i].setStockactual(2);
         if (comanda.isDemana()) {
-            System.out.println("Fer comanda en producte: " +producte.getDescripcio());
+            System.out.println("Fer comanda en producte: " +productes[i].getDescripcio());
         }else
-            System.out.println("No és necessari fer la comanda en producte: " +producte.getDescripcio());
+            System.out.println("No és necessari fer la comanda en producte: " +productes[i].getDescripcio());
+        }
     }
 }
