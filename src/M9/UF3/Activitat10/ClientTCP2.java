@@ -37,10 +37,17 @@ public class ClientTCP2 {
                     //FLUX PER A ENTRADA ESTÀNDARD
                     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-                    String cadena = "";
+                    String nom = "";
                     //El Client posa el seu nom o nick
-                    System.out.println("Introdueix el teu nom");
-                    cadena = in.readLine();
+                    System.out.println("Introdueix el teu nom: ");
+                    nom = in.readLine();
+                    //Si el client no posa el nom
+                    while (nom == null || nom.equals("") ) {
+                        System.out.println("Error, Introdueix el teu nom: ");
+                        nom = in.readLine();
+                    }
+                    
+                    String cadena = "";
                     fsortida.println(cadena);
                     //Quan el client esta conectat es mostra aixo
                     System.out.println("Que vols fer?");
