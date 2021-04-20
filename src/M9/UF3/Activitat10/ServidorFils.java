@@ -59,8 +59,19 @@ public class ServidorFils implements Runnable {
                                     }
                                 }catch (SocketException e){
                                     stop = true;
-                                } catch (IOException ex) {
+                                } catch (IOException ex) { 
                                 Logger.getLogger(ServidorFils.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                                
+                                while (!stop) {
+                                    try {
+                                        cadena = fentrada.readLine();
+                                        
+                                    }catch (SocketException e) {
+                                        stop = true;
+                                    } catch (IOException ex) {
+                                        Logger.getLogger(ServidorFils.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
                                 }
                                     
                             try {
