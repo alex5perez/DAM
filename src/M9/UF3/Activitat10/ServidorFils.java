@@ -12,6 +12,8 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,36 +23,47 @@ public class ServidorFils implements Runnable {
     ServerSocket Servidor;
     String cadena = "";
     Socket clientConnectat;
-    static int clients = 0;
+    static int clients;
 
     public ServidorFils(ServerSocket servidor, Socket clientConnectat) {
         this.Servidor = servidor;
         this.clientConnectat = clientConnectat;
+        this.clients ++;
     }
     
         public void run(){
-            try {
-                                clients++;
+            boolean stop = false;
+            while(!stop) {
+                
+                                PrintWriter fsortida = null;
+                                BufferedReader fentrada = null;
 
-                                System.out.println("Client " + clients + " connectat... ");
+                                System.out.println("Client " + this.clients + " connectat... ");
+                                
+                                try {
+                                    
+                                    //FLUX DE SORTIDA AL CLIENT
+                                    fsortida = new PrintWriter(clientConnectat.getOutputStream(), true);
 
-                                //FLUX DE SORTIDA AL CLIENT
-                                PrintWriter fsortida = new PrintWriter(clientConnectat.getOutputStream(), true);
 
+                                    //FLUX D'ENTRADA DEL CLIENT
+                                    fentrada = new BufferedReader(new InputStreamReader(clientConnectat.getInputStream()));
 
-                                //FLUX D'ENTRADA DEL CLIENT
-                                BufferedReader fentrada = new BufferedReader(new InputStreamReader(clientConnectat.getInputStream()));
-
-                                //Missatge quan el client conecta amb el servidor
-                                fsortida.println("Connexió amb client: " + clients);
-                                while ((cadena = fentrada.readLine()) != null) {
-
-                                        fsortida.println(cadena);
-                                        System.out.println("Rebent: "+cadena);
-                                        if (cadena.equals("*")) break;
-
+                                    //Missatge quan el client conecta amb el servidor
+                                    fsortida.println("Connexió amb client: " + clients);
+                                    if ((cadena = fentrada.readLine()) != null) {
+                                            
+                                            System.out.println("Nom Client " + this.clients + ": " + cadena);
+                                            System.out.println("Rebent: "+cadena);
+                                            if (cadena.equals("*")) break;
+                                    }
+                                }catch (SocketException e){
+                                    stop = true;
+                                } catch (IOException ex) {
+                                Logger.getLogger(ServidorFils.class.getName()).log(Level.SEVERE, null, ex);
                                 }
-
+                                    
+                            try {
                                 //TANCAR STREAMS I SOCKETS
                                 System.out.println("Tancant connexió... ");
                                 fentrada.close();
@@ -61,5 +74,6 @@ public class ServidorFils implements Runnable {
                             }catch (IOException s) {
                                 s.printStackTrace();
                             }
+            }               
         }   
 }
