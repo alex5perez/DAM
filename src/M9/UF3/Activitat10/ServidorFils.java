@@ -61,7 +61,7 @@ public class ServidorFils implements Runnable {
                                     stop = true;
                                 } catch (IOException ex) { 
                                 Logger.getLogger(ServidorFils.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                                }
                                 
                                 while (!stop) {
                                     try {
