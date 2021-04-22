@@ -16,10 +16,10 @@ import ElsMeusBeans.BaseDades;
 public class Exemple {
     public static void main(String[] args) {
         /*     MYSQL*/
-        String urldb = "jdbc:mysql://localhost/UNITAT6-1";
-        String usuari = "exemple";
-        String contrasenya = "exemple";
-        String driver = "com.mysql.jdbc.Driver";
+        String urldb = "jdbc:mysql://localhost:3306/UNITAT6-1";
+        String usuari = "alumne";
+        String contrasenya = "alumne";
+        String driver = "com.mysql.cj.jdbc.Driver";
         
         //Es crear un objecte BaseDades
         BaseDades bd = new BaseDades(urldb, usuari, contrasenya, driver);
