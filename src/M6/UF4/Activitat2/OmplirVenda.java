@@ -43,7 +43,15 @@ public class OmplirVenda{
     
     public static void main (String[] args ) {
         int idproducte;
-        int quantita;
+        int quantitat;
+        
+        try {
+            idproducte = Integer.parseInt(args[0]);
+            quantitat = Integer.parseInt(args[1]);
+        }catch(IndexOutOfBoundsException e){
+            idproducte = omplir(1);
+            quantitat = omplir(2);
+        }
         
 
          //Obrir la base de dades
