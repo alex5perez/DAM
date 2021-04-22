@@ -44,7 +44,7 @@ public class OmplirVenda{
     public static void main (String[] args ) {
         int idproducte;
         int quantitat;
-        
+    //Dades d'entrada per a la venda amb arguments
         try {
             idproducte = Integer.parseInt(args[0]);
             quantitat = Integer.parseInt(args[1]);
