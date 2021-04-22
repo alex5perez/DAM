@@ -25,17 +25,27 @@ import java.util.Scanner;
  *
  * @author alexp
  */
-public class OmplirVenda {
+public class OmplirVenda{
+    public static int omplir (int opcio) {
+    
+
+    Scanner teclat = new Scanner (System.in);
+    
+    
+    //Dades d'entrada per a la venda amb teclat
+        if (opcio == 1) {
+    System.out.println("Id del producte?");
+        }else{
+    System.out.println("Quina quantitat vols?");
+        }
+        return teclat.nextInt();
+        }   
+    
     public static void main (String[] args ) {
-        Scanner teclat = new Scanner (System.in);
-        //Dades d'entrada per a la venda
+        int idproducte;
+        int quantita;
         
-        System.out.println("Id del producte?");
-        int idproducte = teclat.nextInt();
-        System.out.println("Quina quantitat vols?");
-        int quantitat = teclat.nextInt();
-        
-        
+
          //Obrir la base de dades
         ODB odb = ODBFactory.open("Producte_com.BD");
         //Es comprova si n'hi ha el producte
