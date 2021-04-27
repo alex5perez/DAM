@@ -22,15 +22,17 @@ import java.util.logging.Logger;
 public class ServidorFils implements Runnable {
     ServerSocket Servidor;
     String cadena = "";
-    Socket clientConnectat;
+    Socket[] clientConnectat;
     static int clients;
+    Socket client;
 
-    public ServidorFils(ServerSocket servidor, Socket clientConnectat) {
+    public ServidorFils(ServerSocket servidor, Socket[] clientConnectat, Socket sortidaClient) {
         this.Servidor = servidor;
         this.clientConnectat = clientConnectat;
         this.clients ++;
+        this.client = sortidaClient;
     }
-    
+
         public void run(){
             boolean stop = false;
             while(!stop) {
@@ -43,25 +45,25 @@ public class ServidorFils implements Runnable {
                                 try {
                                     
                                     //FLUX DE SORTIDA AL CLIENT
-                                    fsortida = new PrintWriter(clientConnectat.getOutputStream(), true);
+                                    fsortida = new PrintWriter(this.client.getOutputStream(), true);
 
 
                                     //FLUX D'ENTRADA DEL CLIENT
-                                    fentrada = new BufferedReader(new InputStreamReader(clientConnectat.getInputStream()));
+                                    fentrada = new BufferedReader(new InputStreamReader(this.client.getInputStream()));
 
                                     //Missatge quan el client conecta amb el servidor
                                     fsortida.println("Connexió amb client: " + clients);
                                     if ((cadena = fentrada.readLine()) != null) {
                                             
                                             System.out.println("Nom Client " + this.clients + ": " + cadena);
-                                            System.out.println("Rebent: "+cadena);
+                                            
                                             if (cadena.equals("*")) break;
                                     }
                                 }catch (SocketException e){
                                     stop = true;
                                 } catch (IOException ex) { 
-                                Logger.getLogger(ServidorFils.class.getName()).log(Level.SEVERE, null, ex);
-                                }
+                    Logger.getLogger(ServidorFils.class.getName()).log(Level.SEVERE, null, ex);
+                }
                                 
                                 while (!stop) {
                                     try {
@@ -69,6 +71,25 @@ public class ServidorFils implements Runnable {
                                         
                                     }catch (SocketException e) {
                                         stop = true;
+                                    if (cadena == null || cadena.equals("")) {
+                                        stop = true;
+                                    }
+                                    
+                                    if(!stop) {
+                                        fsortida.println(cadena);
+                                        
+                                        if (cadena != null) {
+                                            for (int i=0; i<1; i++) {
+                                                if(clientConnectat[i] != null)  {
+                                                    
+                                                }
+
+                                            }
+                                            System.out.println("Rebent: "+cadena);
+                                                
+                                        }
+                                    }
+ 
                                     } catch (IOException ex) {
                                         Logger.getLogger(ServidorFils.class.getName()).log(Level.SEVERE, null, ex);
                                     }
@@ -79,7 +100,7 @@ public class ServidorFils implements Runnable {
                                 System.out.println("Tancant connexió... ");
                                 fentrada.close();
                                 fsortida.close();
-                                clientConnectat.close();
+                                client.close();
                             }catch (SocketException e){
                                 System.out.println("Error");
                             }catch (IOException s) {
