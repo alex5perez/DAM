@@ -90,7 +90,7 @@ public class ServidorFils implements Runnable {
                                                 }
 
                                             }
-                                            System.out.println("Rebent: "+cadena);
+                                            System.out.println("Rebent missatge: "+cadena);
                                                 
                                         }
                                     }
