@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import java.net.Socket;
+import java.net.SocketException;
 
 /**
  *
@@ -19,6 +20,7 @@ import java.net.Socket;
 public class ClientTCP2 implements Runnable {
     
     private static Socket client;
+    private static boolean seguir = true;
     
     public ClientTCP2(Socket client) {
         this.client = client;
@@ -83,10 +85,22 @@ public class ClientTCP2 implements Runnable {
                         e.printStackTrace();
                     }
 	}
+    
+    public static void noSeguir() {
+        seguir = false;
+    }
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        while (seguir == true) {
+            try {
+                
+            }catch(SocketException e){
+                
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 		
 }
