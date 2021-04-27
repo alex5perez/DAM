@@ -26,29 +26,29 @@ public class ServidorTCP4 {
 		ServerSocket servidor = new ServerSocket(numPort);
                 
                 //Variable per comptar els clients
-                int clients = 0;
                 int numClients;
                 
                 System.out.println("Numero dels clients que vols? ");
                 numClients = teclat.nextInt();
                 
-                Socket[] sortidaClient = new Socket[numClients];
+                Socket[] clientConnectat = new Socket[numClients];
                 ServidorFils[] arrayRunnable = new ServidorFils[numClients];
                 Thread[] arrayThread = new Thread[numClients];
                 
                 for (int i = 0; i < arrayRunnable.length; i++) {
                     
-                
+                    boolean noFunciona = true;
+                    
+                    Socket clientConnectat
                 
                     //El Servidor agafa els clients que li posem per teclat
 
                             System.out.println("Esperant connexió... ");
                             Socket clientConnectat = servidor.accept();
-                            clients++;
                             
                             arrayRunnable[i] = new ServidorFils(servidor, clientConnectat, sortidaClient);
                             arrayThread[i] = new Thread ((Runnable) arrayRunnable[i]);
-                            
+                            arrayThread[i].start();
                             }
                     }   
 	}
