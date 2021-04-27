@@ -94,7 +94,14 @@ public class ClientTCP2 implements Runnable {
     public void run() {
         while (seguir == true) {
             try {
+                BufferedReader fentrada = new BufferedReader (new InputStreamReader(this.client.getInputStream()));
+                String entrada = fentrada.readLine();
                 
+                if(entrada == null) {
+                    noSeguir();
+                }else{
+                    System.out.println(entrada);
+                }
             }catch(SocketException e){
                 
             }catch(IOException e) {
