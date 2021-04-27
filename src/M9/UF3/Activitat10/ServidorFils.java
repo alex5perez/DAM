@@ -37,6 +37,10 @@ public class ServidorFils implements Runnable {
             boolean stop = false;
             while(!stop) {
                 
+                            try {
+                                
+                            
+                
                                 PrintWriter fsortida = null;
                                 BufferedReader fentrada = null;
 
@@ -61,9 +65,7 @@ public class ServidorFils implements Runnable {
                                     }
                                 }catch (SocketException e){
                                     stop = true;
-                                } catch (IOException ex) { 
-                    Logger.getLogger(ServidorFils.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                                } 
                                 
                                 while (!stop) {
                                     try {
@@ -71,6 +73,7 @@ public class ServidorFils implements Runnable {
                                         
                                     }catch (SocketException e) {
                                         stop = true;
+                                    }
                                     if (cadena == null || cadena.equals("")) {
                                         stop = true;
                                     }
@@ -99,16 +102,11 @@ public class ServidorFils implements Runnable {
                                 }catch(NullPointerException e){
                                     
                                 }
-                                    
-                            try {
-                                //TANCAR STREAMS I SOCKETS
-                                System.out.println("Tancant connexió... ");
+                                this.Servidor.close();
+                                this.client.close();
                                 
-                                client.close();
-                            }catch (SocketException e){
-                                System.out.println("Error");
-                            }catch (IOException s) {
-                                s.printStackTrace();
+                            }catch(IOException e) {
+                                e.printStackTrace();
                             }
             }               
         }   
