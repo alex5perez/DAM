@@ -16,12 +16,19 @@ import java.net.Socket;
  *
  * @author alexp
  */
-public class ClientTCP2 {
+public class ClientTCP2 implements Runnable {
+    
+    private static Socket client;
+    
+    public ClientTCP2(Socket client) {
+        this.client = client;
+    }
+        
     public static void main (String[] args) throws Exception {
 		
 		String host = "localhost";
 		int port = 60000;//Port remot
-		Socket client;
+		
                 
                     try {
                     //Iniciem client 
@@ -76,5 +83,10 @@ public class ClientTCP2 {
                         e.printStackTrace();
                     }
 	}
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 		
 }
