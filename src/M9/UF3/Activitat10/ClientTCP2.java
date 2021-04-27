@@ -61,10 +61,12 @@ public class ClientTCP2 {
                             System.out.println(" =>Eco: "+eco);
                             //Lectura del teclat
                             cadena = in.readLine();
-
-
+                            
+                            if (cadena == null) {
+                                fsortida.print(cadena);
+                            }
                     }
-
+                    
                     fsortida.close();
                     fentrada.close();
                     System.out.println("Finalització de l'enviament...");
