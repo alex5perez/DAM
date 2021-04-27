@@ -56,7 +56,9 @@ public class ClientTCP2 {
 
                             //Enviament cadena al servidor
                             fsortida.println(nom + ": " + cadena);
-                            
+                            //El Servidor diu al client
+                            eco = fentrada.readLine();
+                            System.out.println(" =>Eco: "+eco);
                             //Lectura del teclat
                             cadena = in.readLine();
 
