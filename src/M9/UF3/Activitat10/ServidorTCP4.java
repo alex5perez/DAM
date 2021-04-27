@@ -28,11 +28,17 @@ public class ServidorTCP4 {
                 //Variable per comptar els clients
                 int clients = 0;
                 int numClients;
-                Thread thread;
-                ServidorFils fil;
                 
                 System.out.println("Numero dels clients que vols? ");
                 numClients = teclat.nextInt();
+                
+                Socket[] sortidaClients = new Socket[numClients];
+                ServidorFils[] arrayRunnable = new ServidorFils[numClients];
+                Thread[] arrayThread = new Thread[numClients];
+                
+                for (int i = 0; i < arrayRunnable.length; i++) {
+                    
+                }
                 
                     //El Servidor agafa els clients que li posem per teclat
                     while ( clients < numClients) {
