@@ -59,7 +59,9 @@ public class ServidorTCP4 {
                             
                         }
                 
-                    
+                        if(noFunciona) {
+                            
+                        
 
                             System.out.println("Esperant connexió... ");
                             
@@ -68,7 +70,7 @@ public class ServidorTCP4 {
                             arrayThread[i] = new Thread ((Runnable) arrayRunnable[i]);
                             arrayThread[i].start();
                             }
-                       
+                       }
 	}
 
 }
