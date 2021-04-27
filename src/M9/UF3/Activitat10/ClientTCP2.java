@@ -31,8 +31,6 @@ public class ClientTCP2 implements Runnable {
 		String host = "localhost";
 		int port = 60000;//Port remot
 		
-                
-                    try {
                     //Iniciem client 
                     client = new Socket(host, port);
 
@@ -81,10 +79,7 @@ public class ClientTCP2 implements Runnable {
                     System.out.println("Finalització de l'enviament...");
                     in.close();
                     client.close();
-                    }catch(IOException e){
-                        e.printStackTrace();
-                    }
-	}
+    }
     
     public static void noSeguir() {
         seguir = false;
