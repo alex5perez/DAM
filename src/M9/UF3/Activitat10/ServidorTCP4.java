@@ -38,17 +38,17 @@ public class ServidorTCP4 {
                 
                 for (int i = 0; i < arrayRunnable.length; i++) {
                     
-                }
+                
                 
                     //El Servidor agafa els clients que li posem per teclat
-                    while ( clients < numClients) {
-                        try {
+
                             System.out.println("Esperant connexió... ");
                             Socket clientConnectat = servidor.accept();
                             clients++;
                             
                             arrayRunnable[i] = new ServidorFils(servidor, clientConnectat, sortidaClient);
-
+                            arrayThread[i] = new Thread ((Runnable) arrayRunnable[i]);
+                            
                             }
                     }   
 	}
