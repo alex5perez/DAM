@@ -39,12 +39,15 @@ public class ServidorTCP4 {
                     
                     boolean noFunciona = true;
                     
-                    Socket clientConnectat
+                    Socket sortidaClient = null;
+                    try {
+                        sortidaClient = servidor.accept();
+                    
                 
                     //El Servidor agafa els clients que li posem per teclat
 
                             System.out.println("Esperant connexió... ");
-                            Socket clientConnectat = servidor.accept();
+                            
                             
                             arrayRunnable[i] = new ServidorFils(servidor, clientConnectat, sortidaClient);
                             arrayThread[i] = new Thread ((Runnable) arrayRunnable[i]);
