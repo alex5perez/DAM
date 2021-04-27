@@ -81,6 +81,8 @@ public class ServidorFils implements Runnable {
                                         if (cadena != null) {
                                             for (int i=0; i<1; i++) {
                                                 if(clientConnectat[i] != null)  {
+                                                    fsortida = new PrintWriter(this.clientConnectat[i].getOutputStream(), true);
+                                                    fsortida.println(cadena);
                                                     
                                                 }
 
@@ -90,16 +92,18 @@ public class ServidorFils implements Runnable {
                                         }
                                     }
  
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(ServidorFils.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
+                                } 
+                                try {
+                                    fentrada.close();
+                                    fsortida.close();
+                                }catch(NullPointerException e){
+                                    
                                 }
                                     
                             try {
                                 //TANCAR STREAMS I SOCKETS
                                 System.out.println("Tancant connexió... ");
-                                fentrada.close();
-                                fsortida.close();
+                                
                                 client.close();
                             }catch (SocketException e){
                                 System.out.println("Error");
