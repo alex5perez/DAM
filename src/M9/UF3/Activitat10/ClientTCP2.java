@@ -52,10 +52,10 @@ public class ClientTCP2 {
                     //Lectura teclat
                     cadena = in.readLine();
 
-                    while (cadena != null) {
+                    while (cadena != null ) {
 
                             //Enviament cadena al servidor
-                            fsortida.println(cadena);
+                            fsortida.println(nom + ": " + cadena);
                             
                             //Lectura del teclat
                             cadena = in.readLine();
