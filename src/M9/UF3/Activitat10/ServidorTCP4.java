@@ -41,7 +41,7 @@ public class ServidorTCP4 {
                             Socket clientConnectat = servidor.accept();
                             clients++;
                             
-                            fil = new ServidorFils(servidor, clientConnectat);
+                            fil = new ServidorFils(servidor, clientConnectat, sortidaClient);
                             thread = new Thread(fil);
                             thread.start();
                         }catch (SocketException e){
