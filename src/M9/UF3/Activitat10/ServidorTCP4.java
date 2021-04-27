@@ -47,17 +47,10 @@ public class ServidorTCP4 {
                             Socket clientConnectat = servidor.accept();
                             clients++;
                             
-                            fil = new ServidorFils(servidor, clientConnectat, sortidaClient);
-                            thread = new Thread(fil);
-                            thread.start();
-                        }catch (SocketException e){
-                                System.out.println("Error");
-                        }catch (IOException s) {
-                                s.printStackTrace();
+                            arrayRunnable[i] = new ServidorFils(servidor, clientConnectat, sortidaClient);
+
                             }
                     }   
-            servidor.close();
-            teclat.close();
 	}
 
 }
