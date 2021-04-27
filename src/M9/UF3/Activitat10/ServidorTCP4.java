@@ -53,7 +53,8 @@ public class ServidorTCP4 {
                         for (int j=0; j<clientConnectat.length; j++) {
                             
                             if(clientConnectat[i] == null && stop == false) {
-                                
+                                clientConnectat[i] = sortidaClient;
+                                stop = true;
                             }
                             
                         }
