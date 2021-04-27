@@ -42,7 +42,9 @@ public class ServidorTCP4 {
                     Socket sortidaClient = null;
                     try {
                         sortidaClient = servidor.accept();
-                    
+                    }catch(SocketException e){
+                        noFunciona = false;
+                    }    
                 
                     //El Servidor agafa els clients que li posem per teclat
 
@@ -53,7 +55,7 @@ public class ServidorTCP4 {
                             arrayThread[i] = new Thread ((Runnable) arrayRunnable[i]);
                             arrayThread[i].start();
                             }
-                    }   
+                       
 	}
 
 }
