@@ -32,7 +32,7 @@ public class ServidorTCP4 {
                 System.out.println("Numero dels clients que vols? ");
                 numClients = teclat.nextInt();
                 
-                Socket[] sortidaClients = new Socket[numClients];
+                Socket[] sortidaClient = new Socket[numClients];
                 ServidorFils[] arrayRunnable = new ServidorFils[numClients];
                 Thread[] arrayThread = new Thread[numClients];
                 
