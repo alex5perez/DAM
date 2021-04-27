@@ -73,7 +73,7 @@ public class ClientTCP2 implements Runnable {
                                 fsortida.print(cadena);
                             }
                     }
-                    
+                    noSeguir();
                     fsortida.close();
                     fentrada.close();
                     System.out.println("Finalització de l'enviament...");
