@@ -98,7 +98,7 @@ public class ClientTCP2 implements Runnable {
                 BufferedReader fentrada = new BufferedReader (new InputStreamReader(client.getInputStream()));
                 String entrada = fentrada.readLine();
                 
-                if(entrada == null || entrada.equals("") || entrada.equals("null")) {
+                if(entrada == null || entrada.equals("*") || entrada.equals("null")) {
                     noSeguir();
                 }else{
                     System.out.println(entrada);
