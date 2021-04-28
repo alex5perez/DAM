@@ -65,7 +65,7 @@ public class ClientTCP2 implements Runnable {
                     //Lectura teclat
                     cadena = in.readLine();
 
-                    while (cadena != null && !cadena.equals("")) {
+                    while (cadena != null && (!cadena.equals("(exit)"))) {
 
                             //Enviament cadena al servidor
                             fsortida.println(nom + ": " + cadena);
