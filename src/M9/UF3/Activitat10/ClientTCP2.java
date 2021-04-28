@@ -59,7 +59,7 @@ public class ClientTCP2 implements Runnable {
                     //Lectura teclat
                     cadena = in.readLine();
 
-                    while (cadena != null && !cadena.equals("") ) {
+                    while (cadena != null && !cadena.equals("")) {
 
                             //Enviament cadena al servidor
                             fsortida.println(nom + ": " + cadena);
@@ -89,7 +89,7 @@ public class ClientTCP2 implements Runnable {
     public void run() {
         while (seguir == true) {
             try {
-                BufferedReader fentrada = new BufferedReader (new InputStreamReader(this.client.getInputStream()));
+                BufferedReader fentrada = new BufferedReader (new InputStreamReader(client.getInputStream()));
                 String entrada = fentrada.readLine();
                 
                 if(entrada == null || entrada.equals("") || entrada.equals("null")) {
