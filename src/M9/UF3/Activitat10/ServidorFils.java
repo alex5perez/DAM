@@ -58,8 +58,6 @@ public class ServidorFils implements Runnable {
                                     if ((cadena = fentrada.readLine()) != null) {
                                             
                                             System.out.println("Nom Client " + this.clients + ": " + cadena);
-                                            
-                                            if (cadena.equals("*")) break;
                                     }
                                 }catch (SocketException e){
                                     stop = true;
