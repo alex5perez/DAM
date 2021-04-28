@@ -52,7 +52,13 @@ public class ClientTCP2 implements Runnable {
                         System.out.println("Error, Introdueix el teu nom: ");
                         nom = in.readLine();
                     }
+                    
+                    Runnable run = new ClientTCP2(client);
+                    Thread entradaClient = new Thread(run);
+                    
+                    entradaClient.start();
                     fsortida.println(nom);
+                    
                     //Quan el client esta conectat es mostra aixo
                     String cadena, eco = "";
                     System.out.println("Missatge pel chat: ");
