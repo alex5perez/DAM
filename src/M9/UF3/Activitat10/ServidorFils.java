@@ -80,7 +80,7 @@ public class ServidorFils implements Runnable {
                                         fsortida.println(cadena);
                                         
                                         if (cadena != null) {
-                                            for (int i=0; i<1; i++) {
+                                            for (int i=0; i<clientConnectat.length; i++) {
                                                 if(clientConnectat[i] != null)  {
                                                     fsortida = new PrintWriter(this.clientConnectat[i].getOutputStream(), true);
                                                     fsortida.println(cadena);
